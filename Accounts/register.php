@@ -62,8 +62,8 @@ if (mysqli_num_rows($res) > 0){
   $_SESSION["first_name"] = $first_name;
   $_SESSION['last_name'] = $last_name;
   $_SESSION['email'] = $email;
-  $_SESSION["phone"] = $password;
-  $_SESSION["password"] = $phone;
+  $_SESSION["phone"] = $phone;
+  $_SESSION["password"] = $password;
   $_SESSION["dateOfBirth"] = $dateOfBirth;
   if ($role == 'patient'){
     header("Location:registerPatient.php");
