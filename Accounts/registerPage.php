@@ -7,16 +7,19 @@
   <meta charset="utf-8">
   <title>Register</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="styles.css" rel="stylesheet" type="text/css" />
+  <link href="../script/style.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
-<?php
-include "../Includes/header.php";
-?>
-<form action="register.php" method="post">
+
+
+<h1>Register Page</h1>
+<div>
+<form class="register" action="register.php" method="post">
+  <div class="group1">
+  <p>
   <label for="role">Role:</label>
-<p>
     <select name="role" id="role">
       <option value="patient">patient</option>
     </select>
@@ -33,7 +36,9 @@ include "../Includes/header.php";
         <label for="emailAddress">Email Address:</label>
         <input type="email" name="email" id="emailAddress">
     </p>
-    <p>
+  </div>
+<div class="group2">
+<p>
         <label for="Phone">Phone:</label>
         <input type="text" name="phone" id="phone">
     </p>
@@ -45,9 +50,12 @@ include "../Includes/header.php";
         <label for="dateOfBirth">Date of Birth:</label>
         <input type="date" name="dateOfBirth" id="dateOfBirth">
     </p>
-    <input type="submit" value="Ok">
-    <input type="reset" value="Cancel">
+    <input class="save" type="submit" value="Ok">
+    <input class="cancel" type="reset" value="Cancel">
+</div>
+    
 </form>
+</div>
 <?php
 include "../Includes/footer.php";
 ?>
