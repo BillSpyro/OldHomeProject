@@ -18,6 +18,7 @@ include "../Includes/header.php";
     <p>
         <label for="family_code">Family Code:</label>
         <input type="text" name="family_code" id="family_code">
+        <!--Checks if there is a duplicate family code in the DB-->
         <?php if (isset($family_code_error)): ?>
           <span><?php echo $family_code_error; ?></span>
         <?php endif ?>

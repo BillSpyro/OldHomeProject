@@ -7,14 +7,17 @@
   <meta charset="utf-8">
   <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="styles.css" rel="stylesheet" type="text/css" />
+  <link href="../script/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 <?php
 include "../Includes/header.php";
 ?>
+<h1>LOG IN HERE </h1>
+<div>
 <form action="loginPage.php" method="post">
+  <!--Displays error if the login fails-->
   <?php if (isset($error)): ?>
     <span><?php echo $error; ?></span>
   <?php endif ?>
@@ -26,9 +29,10 @@ include "../Includes/header.php";
         <label for="password">Password:</label>
         <input type="password" name="password" id="password">
     </p>
-    <input type="submit" name="login" value="Ok">
-    <input type="reset" value="Cancel">
+    <input class="save" name="login" type="submit" value="Ok">
+    <input class="cancel" type="reset" value="Cancel">
 </form>
+</div>
 <?php
 include "../Includes/footer.php";
 ?>

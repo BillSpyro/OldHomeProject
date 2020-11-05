@@ -7,6 +7,7 @@ if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
+//Checks if the user registered as a patient
 if (isset($_POST['registerPatient'])) {
   session_start();
   $role = $_SESSION['role'];
@@ -40,6 +41,7 @@ if (isset($_POST['registerPatient'])) {
   }
 }
 
+//Checks if the user registered
 if (isset($_POST['register'])) {
 // Escape user inputs for security
 $role = $_POST['role'];
@@ -56,6 +58,7 @@ $res = mysqli_query($link, $sql);
 session_start();
 
 if (mysqli_num_rows($res) > 0){
+  //Checks if email is already used in DB
   $email_error = "Sorry... email already taken";
 }else {
   $_SESSION['role'] = $role;
@@ -65,6 +68,7 @@ if (mysqli_num_rows($res) > 0){
   $_SESSION["phone"] = $phone;
   $_SESSION["password"] = $password;
   $_SESSION["dateOfBirth"] = $dateOfBirth;
+  //If registered as a patient they will be directed to another page for more information
   if ($role == 'patient'){
     header("Location:registerPatient.php");
   } else {
