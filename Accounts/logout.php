@@ -1,8 +1,10 @@
+<!-- log out the session -->
+
 <?
 session_start();
 session_unset();
 session_destroy();
 
-header("location:registerPage.php");
+header("location:index.php");
 exit();
 ?>

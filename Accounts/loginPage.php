@@ -11,9 +11,11 @@
 </head>
 
 <body>
+  <!-- include header page -->
 <?php
 include "../Includes/header.php";
 ?>
+<!-- basic login form -->
 <h1>LOG IN HERE </h1>
 <div>
 <form action="loginPage.php" method="post">
@@ -33,6 +35,7 @@ include "../Includes/header.php";
     <input class="cancel" type="reset" value="Cancel">
 </form>
 </div>
+<!-- include footer page -->
 <?php
 include "../Includes/footer.php";
 ?>

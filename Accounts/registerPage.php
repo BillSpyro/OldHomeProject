@@ -12,14 +12,16 @@
 </head>
 
 <body>
-
+<!-- include header page -->
 <?php
+
 include "../Includes/header.php";
 ?>
-
+<!-- basic registeration form  -->
 <h1>Register Page</h1>
-<div>
+
 <form class="register" action="registerPage.php" method="post">
+<div>
   <div class="group1">
   <p>
   <label for="role">Role:</label>
@@ -47,7 +49,7 @@ include "../Includes/header.php";
         </div>
     </p>
   </div>
-<div class="group2">
+<div class="group1">
 <p>
         <label for="Phone">Phone:</label>
         <input type="text" name="phone" id="phone">
@@ -63,8 +65,9 @@ include "../Includes/header.php";
     <input class="save" name="register" type="submit" value="Ok">
     <input class="cancel" type="reset" value="Cancel">
 </div>
-</form>
 </div>
+</form>
+<!-- include footer page -->
 <?php
 include "../Includes/footer.php";
 ?>

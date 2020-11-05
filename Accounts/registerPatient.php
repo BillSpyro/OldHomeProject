@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <!-- basic patient registration form page -->
 <?php
 include "../Includes/header.php";
 ?>
@@ -35,6 +36,7 @@ include "../Includes/header.php";
     <input type="submit" name="registerPatient" value="Ok">
     <input type="reset" value="Cancel">
 </form>
+<!-- include footer page -->
 <?php
 include "../Includes/footer.php";
 ?>
