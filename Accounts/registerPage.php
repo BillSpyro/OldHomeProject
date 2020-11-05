@@ -19,6 +19,7 @@ include "../Includes/header.php";
   <label for="role">Role:</label>
     <select name="role" id="role">
       <option value="patient">patient</option>
+      <option value="caregiver">caregiver</option>
     </select>
   </p>
     <p>
