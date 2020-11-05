@@ -1,4 +1,4 @@
-
+<? include "register.php" ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -14,9 +14,9 @@
 <?php
 include "../Includes/header.php";
 ?>
-<form action="register.php" method="post">
-  <label for="role">Role:</label>
+<form action="registerPage.php" method="post">
 <p>
+  <label for="role">Role:</label>
     <select name="role" id="role">
       <option value="patient">patient</option>
     </select>
@@ -30,8 +30,13 @@ include "../Includes/header.php";
         <input type="text" name="last_name" id="lastName">
     </p>
     <p>
-        <label for="emailAddress">Email Address:</label>
-        <input type="email" name="email" id="emailAddress">
+        <div <?php if (isset($email_error)): ?> class="form_error" <?php endif ?> >
+          <label for="emailAddress">Email Address:</label>
+          <input type="email" name="email" id="emailAddress">
+          <?php if (isset($email_error)): ?>
+            <span><?php echo $email_error; ?></span>
+          <?php endif ?>
+        </div>
     </p>
     <p>
         <label for="Phone">Phone:</label>
@@ -45,7 +50,7 @@ include "../Includes/header.php";
         <label for="dateOfBirth">Date of Birth:</label>
         <input type="date" name="dateOfBirth" id="dateOfBirth">
     </p>
-    <input type="submit" value="Ok">
+    <input type="submit" name="register" value="Ok">
     <input type="reset" value="Cancel">
 </form>
 <?php
