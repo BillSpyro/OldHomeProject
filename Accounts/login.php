@@ -7,23 +7,32 @@ if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
+if (isset($_POST['login'])) {
 // Escape user inputs for security
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$sql = "SELECT * FROM accounts WHERE email = '$email' AND password = '$password'";
-$result = mysqli_query($link, $sql);
+$sql = "SELECT id FROM accounts WHERE email = '$email' and password = '$password'";
+$result = mysqli_query($link,$sql);
+$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-if (mysqli_query($link, $sql)) {
+$count = mysqli_num_rows($result);
+
+// If result matched $myusername and $mypassword, table row must be 1 row
+
+if($count == 1) {
+  if (mysqli_query($link, $sql)) {
+    $_SESSION['email'] = $email;
+    $_SESSION["password"] = $password;
+    $_SESSION['loggedin'] = true;
     echo "Logged in successfully.";
-} else {
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+  } else {
+      echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+  }
+}else {
+   $error = "Your Email or Password is invalid";
 }
-
-echo '<br>';
-echo 'Hello user';
-echo $result;
-
+}
 /*
 session_start();
 

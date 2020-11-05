@@ -1,3 +1,5 @@
+<? include "login.php" ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -12,7 +14,10 @@
 <?php
 include "../Includes/header.php";
 ?>
-<form action="login.php" method="post">
+<form action="loginPage.php" method="post">
+  <?php if (isset($error)): ?>
+    <span><?php echo $error; ?></span>
+  <?php endif ?>
     <p>
         <label for="emailAddress">Email Address:</label>
         <input type="email" name="email" id="emailAddress">
@@ -21,12 +26,9 @@ include "../Includes/header.php";
         <label for="password">Password:</label>
         <input type="password" name="password" id="password">
     </p>
-    <input type="submit" value="Ok">
+    <input type="submit" name="login" value="Ok">
     <input type="reset" value="Cancel">
 </form>
 <?php
 include "../Includes/footer.php";
 ?>
-
-
-
