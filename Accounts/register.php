@@ -11,19 +11,19 @@ if ($link === false) {
 if (isset($_POST['registerPatient'])) {
   session_start();
   $role = $_SESSION['role'];
-  $first_name = $_SESSION["first_name"];
+  $first_name = $_SESSION['first_name'];
   $last_name = $_SESSION['last_name'];
   $email = $_SESSION['email'];
-  $phone = $_SESSION["phone"];
-  $password = $_SESSION["password"];
-  $dateOfBirth = $_SESSION["dateOfBirth"];
+  $phone = $_SESSION['phone'];
+  $password = $_SESSION['password'];
+  $dateOfBirth = $_SESSION['dateOfBirth'];
 
   $family_code = $_POST['family_code'];
   $emergency_contact = $_POST['emergency_contact'];
   $relation_emergency = $_POST['relation_emergency'];
 
   // Attempt insert query execution
-  $sql = "INSERT INTO accounts (role, first_name, last_name, email, password, phone, dateOfBirth, family_code, emergency_contact, relation_emergency) VALUES ('$role', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth', '$family_code', '$emergency_contact', '$relation_emergency')";
+  $sql = "INSERT INTO queue (role, first_name, last_name, email, password, phone, dateOfBirth, family_code, emergency_contact, relation_emergency) VALUES ('$role', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth', '$family_code', '$emergency_contact', '$relation_emergency')";
   session_unset();
   session_destroy();
   if (mysqli_query($link, $sql)) {
@@ -38,6 +38,7 @@ if (isset($_POST['registerPatient'])) {
 
 if (isset($_POST['register'])) {
 // Escape user inputs for security
+session_start();
 $role = $_POST['role'];
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
@@ -56,18 +57,18 @@ if (mysqli_num_rows($res) > 0){
   $email_error = "Sorry... email already taken";
 }else {
   $_SESSION['role'] = $role;
-  $_SESSION["first_name"] = $first_name;
+  $_SESSION['first_name'] = $first_name;
   $_SESSION['last_name'] = $last_name;
   $_SESSION['email'] = $email;
-  $_SESSION["phone"] = $phone;
-  $_SESSION["password"] = $password;
-  $_SESSION["dateOfBirth"] = $dateOfBirth;
+  $_SESSION['phone'] = $phone;
+  $_SESSION['password'] = $password;
+  $_SESSION['dateOfBirth'] = $dateOfBirth;
   //If registered as a patient they will be directed to another page for more information
   if ($role == 'patient'){
     header("Location:registerPatient.php");
   } else {
   // Attempt insert query execution
-  $sql = "INSERT INTO accounts (role, first_name, last_name, email, password, phone, dateOfBirth) VALUES ('$role', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth')";
+  $sql = "INSERT INTO queue (role, first_name, last_name, email, password, phone, dateOfBirth) VALUES ('$role', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth')";
   session_unset();
   session_destroy();
   if (mysqli_query($link, $sql)) {

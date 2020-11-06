@@ -60,4 +60,5 @@ VALUES ('Admin', 5),
 ('Family_member', 0);
 
 INSERT INTO `accounts` (role, first_name, last_name, email, password, phone, dateOfBirth, admission_date, salary)
-VALUES ('Admin', 'Charles', 'Crandall', 'admin@gmail.com', '12345', '717-381-1131', '07-27-2000', '11-3-2020', '3,000,000');
+VALUES ('Admin', 'Charles', 'Crandall', 'admin@gmail.com', '12345', '717-381-1131', '07-27-2000', '11-3-2020', '3,000,000'),
+('Caregiver', 'Albe', 'Mela', 'caregiver@gmail.com', '67890', 'no phone', '04-5-2000', '11-5-2020', '1');

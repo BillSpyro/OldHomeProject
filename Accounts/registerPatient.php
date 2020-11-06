@@ -29,7 +29,7 @@ include "../Includes/header.php";
         <input type="text" name="relation_emergency" id="relation_emergency" required>
     </p>
 
-    <input class="save" name="register" type="submit" value="Ok">
+    <input class="save" name="registerPatient" type="submit" value="Ok">
     <input class="cancel" type="reset" value="Cancel">
 </form>
 <!-- include footer page -->
