@@ -18,7 +18,7 @@ include "../Includes/header.php";
 <form action="registerPatient.php" method="post">
     <p>
         <label for="family_code">Family Code:</label>
-        <input type="text" name="family_code" id="family_code">
+        <input type="text" name="family_code" id="family_code" required>
         <!--Checks if there is a duplicate family code in the DB-->
         <?php if (isset($family_code_error)): ?>
           <span><?php echo $family_code_error; ?></span>
@@ -26,11 +26,11 @@ include "../Includes/header.php";
     </p>
     <p>
         <label for="emergency_contact">Emergenct Contact:</label>
-        <input type="text" name="emergency_contact" id="emergency_contact">
+        <input type="text" name="emergency_contact" id="emergency_contact" required>
     </p>
     <p>
         <label for="relation_emergency">Relation to Emergency Contact:</label>
-        <input type="text" name="relation_emergency" id="relation_emergency">
+        <input type="text" name="relation_emergency" id="relation_emergency" required>
     </p>
 
     <input type="submit" name="registerPatient" value="Ok">
