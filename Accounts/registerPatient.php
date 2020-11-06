@@ -33,8 +33,8 @@ include "../Includes/header.php";
         <input type="text" name="relation_emergency" id="relation_emergency">
     </p>
 
-    <input type="submit" name="registerPatient" value="Ok">
-    <input type="reset" value="Cancel">
+    <input class="save" name="register" type="submit" value="Ok">
+    <input class="cancel" type="reset" value="Cancel">
 </form>
 <!-- include footer page -->
 <?php
