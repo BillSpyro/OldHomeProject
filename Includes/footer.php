@@ -1,5 +1,6 @@
+<!-- basic footer page -->
 <footer>
-    <p>this is my footer</p>
+    <h2>this is my footer<h2>
 </footer>
 </body>
 </html>

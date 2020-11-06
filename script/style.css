@@ -1,0 +1,117 @@
+html {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E6E6FA;
+ }
+
+ body {
+     padding: 0;
+     margin: 0;
+ }
+ /* header style */
+ header {
+    height: 60px;
+    background-color: #f2f2f26b;
+    box-shadow: 0 0 10px #000;
+}
+ul {
+    float: right;
+    position: relative;
+    right: 10%;
+
+}
+ul li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+}
+
+ul li a {
+    
+    text-decoration: none;
+    color: blue;
+    font-size: 18px;
+    padding: 0px 0px 0px 0px;
+
+}
+/* home page of login and register link style */
+.home-log {
+    position: absolute;
+    top: 25%;
+    right: 60%;
+}
+.home-log li {
+    list-style: none;
+    padding: 30px;
+    text-align: center;
+    
+}
+.home-log li a{
+    background-color: teal;
+    padding:20px;
+    width: 100%;
+    text-decoration: none;
+    font-size: 24px;
+    display: inline-block;
+    color: white;
+}
+/* footer style */
+ 
+ footer {
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: 40%;
+    color: white;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    
+}
+footer h2 {
+    text-transform: uppercase;
+    
+}
+/* form style */
+form {
+    margin-right: 20%;
+    text-align: center;
+
+}
+label {
+    color: blue;
+    font-size: 22px;;
+}
+input, select{
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    box-shadow: 0 0 10px blue;
+    width: 240px;
+    height: 40px;
+    background-color: #f2f2f2;
+}
+/* ok and cancel button style */
+
+input.save  {
+    display: block;
+    background-color: green;
+}
+input.cancel  {
+    background-color: brown;
+}
+/* registration form of labels and inputes style */
+.group1{
+    float: left;
+    width: 50%;
+    
+  }
+
+  .register {
+    text-align: center;
+    padding-top: 20px;
+    clear: both;
+  }
