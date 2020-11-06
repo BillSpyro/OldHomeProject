@@ -25,11 +25,11 @@ include "../Includes/header.php";
   <?php endif ?>
     <p>
         <label for="emailAddress">Email Address:</label>
-        <input type="email" name="email" id="emailAddress">
+        <input type="email" name="email" id="emailAddress" required>
     </p>
     <p>
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
     </p>
     <input class="save" name="login" type="submit" value="Ok">
     <input class="cancel" type="reset" value="Cancel">
