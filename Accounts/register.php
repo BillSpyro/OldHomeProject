@@ -21,24 +21,18 @@ if (isset($_POST['registerPatient'])) {
   $emergency_contact = $_POST['emergency_contact'];
   $relation_emergency = $_POST['relation_emergency'];
 
-  $sql = "SELECT * FROM accounts WHERE family_code='$family_code'";
-  $res = mysqli_query($link, $sql);
-
-  if (mysqli_num_rows($res) > 0){
-    $family_code_error = "Sorry... that family code was already taken";
-  }else {
-    // Attempt insert query execution
-    $sql = "INSERT INTO accounts (role, first_name, last_name, email, password, phone, dateOfBirth, family_code, emergency_contact, relation_emergency) VALUES ('$role', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth', '$family_code', '$emergency_contact', '$relation_emergency')";
-    session_unset();
-    session_destroy();
-    if (mysqli_query($link, $sql)) {
-        echo "Records added successfully.";
-        header("Location:loginPage.php");
-    } else {
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-    }
+  // Attempt insert query execution
+  $sql = "INSERT INTO accounts (role, first_name, last_name, email, password, phone, dateOfBirth, family_code, emergency_contact, relation_emergency) VALUES ('$role', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth', '$family_code', '$emergency_contact', '$relation_emergency')";
+  session_unset();
+  session_destroy();
+  if (mysqli_query($link, $sql)) {
+      echo "Records added successfully.";
+      header("Location:loginPage.php");
+  } else {
+      echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
   }
 }
+
 
 if (isset($_POST['register'])) {
 // Escape user inputs for security
