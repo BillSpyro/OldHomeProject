@@ -1,6 +1,5 @@
 <?php
-session_start();
-if ($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Supervisor') {
+// if ($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Supervisor') {
 
   $link = mysqli_connect("localhost", "root", "","oldHome");
 
@@ -28,6 +27,27 @@ if ($result = mysqli_query($link, $sql)) {
     $error = "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 
+
+//Runs operation when Ok is selected
+if (isset($_POST['approve'])) {
+$list = $_POST['list'];
+
+  if(!empty($list)){
+    foreach($list as $name){
+         $approveArray = explode('-', $name);
+         foreach($approveArray as $value){
+           echo $value;
+       }
+    }
+  }
+}
+
+
+
+
+
+
+
 // Close connection
 mysqli_close($link);
 
@@ -47,7 +67,7 @@ mysqli_close($link);
 
 
 
-} else {
+/* } else {
   header("Location:accountPage.php");
-}
+} */
 ?>

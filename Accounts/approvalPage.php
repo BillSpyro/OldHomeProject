@@ -1,4 +1,4 @@
-<? include "approval.php" ?>
+<?php include "approval.php" ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -14,7 +14,7 @@
 <?php
 include "../Includes/header.php";
 ?>
-<form class="approval" action="approval.php" method="post">
+<form class="approval" action="approvalPage.php" method="post">
 <table>
   <tr>
     <th>Name</th>
@@ -22,17 +22,21 @@ include "../Includes/header.php";
     <th>Yes</th>
     <th>No</th>
   </tr>
-<?php foreach ($nameArray as $name):
-      foreach ($roleArray as $role):?>
+<?php for($i=0, $count = count($nameArray);$i<$count;$i++):
+ $name  = $nameArray[$i];
+ $role = $roleArray[$i];
+      ?>
   <tr>
     <td><?php echo $name; ?></td>
     <td><?php echo $role; ?></td>
-    <td><input type="radio" id="yes" name=<?php echo $name; ?> value="yes"></td>
-    <td><input type="radio" id="no" name=<?php echo $name; ?> value="no"></td>
+    <td><input type="radio" id="yes" name="list[<?php echo $name ?>]" value="Yes-<?php echo $name ?>"></td>
+    <td><input type="radio" id="no" name="list[<?php echo $name ?>]" value="No-<?php echo $name ?>"></td>
   </tr>
-<?php endforeach ?>
-<?php endforeach ?>
+<?php endfor ?>
 </table>
+
+<input class="save" name="approve" type="submit" value="Ok">
+<input class="cancel" type="reset" value="Cancel">
 </form>
 
 <?php
