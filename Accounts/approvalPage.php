@@ -1,4 +1,4 @@
-<?php include "approval.php" ?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -13,6 +13,7 @@
 <body>
 <?php
 include "../Includes/header.php";
+include "approval.php";
 ?>
 <form class="approval" action="approvalPage.php" method="post">
 <table>

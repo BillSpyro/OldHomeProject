@@ -13,7 +13,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 //Checks matching email and password
-$sql = "SELECT * FROM accounts WHERE email = '$email' and password = '$password'";
+$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE email = '$email' and password = '$password' and r.role_id = a.role_id";
 $result = mysqli_query($link,$sql);
 
 $count = mysqli_num_rows($result);
@@ -23,7 +23,8 @@ if($count == 1) {
     session_start();
     while ($row = mysqli_fetch_array($result)){
       $_SESSION['id'] = $row['id'];
-      $_SESSION['role'] = $row['role'];
+      $_SESSION['role_id'] = $row['role_id'];
+      $_SESSION['access_level'] = $row['access_level'];
       $_SESSION['first_name'] = $row['first_name'];
       $_SESSION['last_name'] = $row['last_name'];
       $_SESSION['email'] = $row['email'];

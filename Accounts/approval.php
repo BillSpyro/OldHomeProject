@@ -1,4 +1,5 @@
 <?php
+if ($_SESSION['access_level'] >= 4){
 
   $link = mysqli_connect("localhost", "root", "","oldHome");
 
@@ -81,5 +82,7 @@ $list = $_POST['list'];
 
 // Close connection
 mysqli_close($link);
-
+} else {
+  header("location:accountPage.php");
+}
 ?>
