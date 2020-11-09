@@ -7,7 +7,7 @@
       die("ERROR: Could not connect. " . mysqli_connect_error());
   }
 
-$sql = "SELECT * FROM queue";
+$sql = "SELECT q.*, r.* FROM queue q, roles r WHERE r.role_id = q.role_id";
 
 $nameArray = array();
 $roleArray = array();
@@ -16,7 +16,7 @@ if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
             array_push($nameArray, $row['first_name']);
-            array_push($roleArray, $row['role']);
+            array_push($roleArray, $row['role_name']);
         }
         mysqli_free_result($result);
     } else {
@@ -50,7 +50,7 @@ $list = $_POST['list'];
 
               if (mysqli_query($link, $sql)) {
               while ($row = mysqli_fetch_array($res)){
-                $role = $row['role'];
+                $role_id = $row['role_id'];
                 $last_name = $row['last_name'];
                 $email = $row['email'];
                 $password = $row['password'];
@@ -62,7 +62,7 @@ $list = $_POST['list'];
               }
               $sql = "DELETE FROM queue WHERE first_name = '$first_name'";
               $res = mysqli_query($link, $sql);
-              $sql = "INSERT INTO accounts (role, first_name, last_name, email, password, phone, dateOfBirth, family_code, emergency_contact, relation_emergency) VALUES ('$role', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth', '$family_code', '$emergency_contact', '$relation_emergency')";
+              $sql = "INSERT INTO accounts (role_id, first_name, last_name, email, password, phone, dateOfBirth, family_code, emergency_contact, relation_emergency) VALUES ('$role_id', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth', '$family_code', '$emergency_contact', '$relation_emergency')";
               $res = mysqli_query($link, $sql);
               //echo "Added successfully";
             }else {

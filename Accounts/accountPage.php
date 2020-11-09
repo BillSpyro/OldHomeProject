@@ -16,9 +16,7 @@ include "../Includes/header.php";
     <h1>hello <?php
     echo $_SESSION["first_name"] . " " . $_SESSION["last_name"] ; ?></h1>
 
-    <?php if ($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Supervisor'): ?>
     <li><a href="../Accounts/approvalPage.php">Registration Approval</a></li>
-  <?php endif ?>
 
     <?php
     include "../Includes/footer.php";

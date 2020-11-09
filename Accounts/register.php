@@ -7,6 +7,9 @@ if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
+$sql = "SELECT * FROM roles";
+$result = mysqli_query($link,$sql);
+
 //Checks if the user registered as a patient
 if (isset($_POST['registerPatient'])) {
   session_start();
@@ -22,8 +25,14 @@ if (isset($_POST['registerPatient'])) {
   $emergency_contact = $_POST['emergency_contact'];
   $relation_emergency = $_POST['relation_emergency'];
 
+  $sql = "SELECT * FROM roles WHERE role_name = '$role'";
+  $res = mysqli_query($link, $sql);
+  while ($row = mysqli_fetch_array($res)){
+    $role_id = $row['role_id'];
+  }
+
   // Attempt insert query execution
-  $sql = "INSERT INTO queue (role, first_name, last_name, email, password, phone, dateOfBirth, family_code, emergency_contact, relation_emergency) VALUES ('$role', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth', '$family_code', '$emergency_contact', '$relation_emergency')";
+  $sql = "INSERT INTO queue (role_id, first_name, last_name, email, password, phone, dateOfBirth, family_code, emergency_contact, relation_emergency) VALUES ('$role_id', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth', '$family_code', '$emergency_contact', '$relation_emergency')";
   session_unset();
   session_destroy();
   if (mysqli_query($link, $sql)) {
@@ -64,11 +73,18 @@ if (mysqli_num_rows($res) > 0){
   $_SESSION['password'] = $password;
   $_SESSION['dateOfBirth'] = $dateOfBirth;
   //If registered as a patient they will be directed to another page for more information
-  if ($role == 'patient'){
+  if ($role == 'Patient'){
     header("Location:registerPatient.php");
   } else {
+
+  $sql = "SELECT * FROM roles WHERE role_name = '$role'";
+  $res = mysqli_query($link, $sql);
+  while ($row = mysqli_fetch_array($res)){
+    $role_id = $row['role_id'];
+  }
+
   // Attempt insert query execution
-  $sql = "INSERT INTO queue (role, first_name, last_name, email, password, phone, dateOfBirth) VALUES ('$role', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth')";
+  $sql = "INSERT INTO queue (role_id, first_name, last_name, email, password, phone, dateOfBirth) VALUES ('$role_id', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth')";
   session_unset();
   session_destroy();
   if (mysqli_query($link, $sql)) {
@@ -77,7 +93,8 @@ if (mysqli_num_rows($res) > 0){
   } else {
       echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
   }
-}}
+}
+}
 }
 
 // Close connection

@@ -25,10 +25,11 @@ include "../Includes/header.php";
   <div class="group1">
   <p>
   <label for="role">Role:</label>
-    <select name="role" id="role">
-      <option value="patient">patient</option>
-      <option value="caregiver">caregiver</option>
-    </select>
+      <select name="role" id="role">
+        <?php  while ($row = mysqli_fetch_array($result)): ?>
+      <option value=<? echo $row['role_name']; ?>><? echo $row['role_name']; ?></option>
+        <? endwhile ?>
+      </select>
   </p>
     <p>
         <label for="firstName">First Name:</label>
