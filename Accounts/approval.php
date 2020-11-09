@@ -35,9 +35,47 @@ $list = $_POST['list'];
   if(!empty($list)){
     foreach($list as $name){
          $approveArray = explode('-', $name);
-         foreach($approveArray as $value){
-           echo $value;
+         $keys = array_keys($approveArray);
+         foreach(array_keys($keys) as $value){
+            $current_key = current($keys);
+            $current_value = $approveArray[$current_key];
+            
+            $next_key = next($keys);
+            $next_value = $approveArray[$next_key] ?? null;
+            //echo  "{$value}: current = ({$current_key} => {$current_value}); next = ({$next_key} => {$next_value})\n";
+
+            if ($current_value == "Yes"){
+              $first_name = $next_value;
+              $sql = "SELECT * FROM queue WHERE first_name='$first_name'";
+              $res = mysqli_query($link, $sql);
+
+              if (mysqli_query($link, $sql)) {
+              while ($row = mysqli_fetch_array($res)){
+                $role = $row['role'];
+                $last_name = $row['last_name'];
+                $email = $row['email'];
+                $password = $row['password'];
+                $phone = $row['phone'];
+                $dateOfBirth = $row['dateOfBirth'];
+                $family_code = $row['family_code'];
+                $emergency_contact = $row['emergency_contact'];
+                $relation_emergency = $row['relation_emergency'];
+              }
+              $sql = "DELETE FROM queue WHERE first_name = '$first_name'";
+              $res = mysqli_query($link, $sql);
+              $sql = "INSERT INTO accounts (role, first_name, last_name, email, password, phone, dateOfBirth, family_code, emergency_contact, relation_emergency) VALUES ('$role', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth', '$family_code', '$emergency_contact', '$relation_emergency')";
+              $res = mysqli_query($link, $sql);
+              //echo "Added successfully";
+            }else {
+              echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+
+            }
+       } elseif ($current_value == "No"){
+         $first_name = $next_value;
+         $sql = "DELETE FROM queue WHERE first_name='$first_name'";
+         $res = mysqli_query($link, $sql);
        }
+     }
     }
   }
 }

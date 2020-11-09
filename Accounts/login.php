@@ -28,7 +28,7 @@ if($count == 1) {
       $_SESSION['last_name'] = $row['last_name'];
       $_SESSION['email'] = $row['email'];
       $_SESSION['password'] = $row['password'];
-      $_SESSION['Phone'] = $row['Phone'];
+      $_SESSION['phone'] = $row['phone'];
       $_SESSION['dathOfBirth'] = $row['dateOfBirth'];
       $_SESSION['family_code'] = $row['family_code'];
       $_SESSION['emergency_contact'] = $row['emergency_contact'];
