@@ -1,5 +1,4 @@
 <?php
-// if ($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Supervisor') {
 
   $link = mysqli_connect("localhost", "root", "","oldHome");
 
@@ -39,7 +38,7 @@ $list = $_POST['list'];
          foreach(array_keys($keys) as $value){
             $current_key = current($keys);
             $current_value = $approveArray[$current_key];
-            
+
             $next_key = next($keys);
             $next_value = $approveArray[$next_key] ?? null;
             //echo  "{$value}: current = ({$current_key} => {$current_value}); next = ({$next_key} => {$next_value})\n";
@@ -80,32 +79,7 @@ $list = $_POST['list'];
   }
 }
 
-
-
-
-
-
-
 // Close connection
 mysqli_close($link);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* } else {
-  header("Location:accountPage.php");
-} */
 ?>
