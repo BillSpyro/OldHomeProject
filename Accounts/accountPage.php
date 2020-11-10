@@ -20,6 +20,9 @@ include "../Includes/header.php";
     <li><a href="../Accounts/approvalPage.php">Registration Approval</a></li>
     <li><a href="../Accounts/additional_Patient_infoPage.php">Additional Patient Info</a></li>
     <?php endif ?>
+    <?php if ($_SESSION['access_level'] >= 5): ?>
+    <li><a href="../Roles/rolePage.php">Roles</a></li>
+    <?php endif ?>
 
 
     <h2>
