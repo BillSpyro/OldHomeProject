@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Register Patient</title>
+  <title>Additional Patient Info</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../script/style.css" rel="stylesheet" type="text/css" />
 </head>
@@ -21,32 +21,30 @@ include "additional_Patient_info.php";
         <label for="id">Patient ID:</label>
         <input type="text" name="id" id="id" required>
     </p>
-    <input class="save" name="additional_Patient_info_search" type="submit" value="Ok">
+    <input class="save" name="additional_Patient_info_search" type="submit" value="Search">
 </form>
-   
 
+<?php if (isset($_POST['additional_Patient_info_search'])): ?>
 <form action="additional_Patient_infoPage.php" method="post">
 
     <p>
-        <label for="Group">Group:</label>
-        <input type="text" name="Group" id="Group" required>
+        <label for="group">Group:</label>
+        <input type="text" name="group" id="group" required>
     </p>
     <p>
-        <label for="Admission_Date">Admission Date:</label>
-        <input type="date" name="Admission_Date" id="Admission_Date" required>
+        <label for="admission_date">Admission Date:</label>
+        <input type="date" name="admission_date" id="admission_date" required>
     </p>
     <p>
         <label for="first_name">Patient Name:</label>
-        <p><?php
 
+        <p><?php echo $first_name . " " . $last_name; ?></p>
 
-                echo $first_name;
-
-        ?></p>
     </p>
 
     <input class="save" name="additional_Patient_info" type="submit" value="Ok">
     <input class="cancel" type="reset" value="Cancel">
+    <?php endif ?>
 </form>
 <!-- include footer page -->
 <?php
