@@ -19,6 +19,9 @@ include "../Includes/header.php";
     <?php if ($_SESSION['access_level'] >= 4): ?>
     <li><a href="../Accounts/approvalPage.php">Registration Approval</a></li>
     <?php endif ?>
+    <?php if ($_SESSION['access_level'] >= 5): ?>
+    <li><a href="../Roles/rolePage.php">Roles</a></li>
+    <?php endif ?>
 
 
     <h2>
