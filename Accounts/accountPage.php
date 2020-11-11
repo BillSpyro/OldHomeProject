@@ -19,17 +19,18 @@ include "../Includes/header.php";
     <?php if ($_SESSION['access_level'] >= 4): ?>
     <ul class="admin">
       <li><a href="../Accounts/approvalPage.php">Registration Approval</a></li>
+
+      <li><a href="../Accounts/additional_Patient_infoPage.php">Additional Patient Info</a></li>
+      <li><a href="../views/employeePage.php">Employee</a></li>
+
       <?php endif ?>
       <?php if ($_SESSION['access_level'] >= 5): ?>
       <li><a href="../Roles/rolePage.php">Roles</a></li>
-
       <?php endif ?>
 
       <?php if ($_SESSION['access_level'] >=2): ?>
-        <ul>
-        <li><a href="../views/patient_of_doctorsView.php">PatientInformation</a></li>
-      </ul>
-        <?php endif ?>
+      <li><a href="../views/patient_of_doctorsView.php">PatientInformation</a></li>
+      <?php endif ?>
     </ul>
 
     <h2>
