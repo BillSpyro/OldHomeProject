@@ -22,7 +22,7 @@ CREATE TABLE `accounts` (
   `family_code` varchar(45) DEFAULT NULL,
   `emergency_contact` varchar(45) DEFAULT NULL,
   `relation_emergency` varchar(45) DEFAULT NULL,
-  `approved` boolean NOT NULL,
+  `approved` boolean DEFAULT FALSE,
   `group` int(11) DEFAULT NULL,
   `admission_date` varchar(45) DEFAULT NULL,
   `salary` varchar(45) DEFAULT NULL,
@@ -88,5 +88,5 @@ VALUES ('Admin', 5),
 ('Family Member', 0);
 
 INSERT INTO `accounts` (role_id, first_name, last_name, email, password, phone, dateOfBirth, approved, admission_date, salary)
-VALUES (10, 'Charles', 'Crandall', 'admin@gmail.com', '12345', '717-381-1131', '07-27-2000', TRUE, '11-3-2020', '3,000,000'),
-(13, 'Albe', 'Mela', 'caregiver@gmail.com', '67890', 'no phone', '04-5-2000', TRUE, '11-5-2020', '1');
+VALUES (1, 'Charles', 'Crandall', 'admin@gmail.com', '12345', '717-381-1131', '07-27-2000', TRUE, '11-3-2020', '3,000,000'),
+(4, 'Albe', 'Mela', 'caregiver@gmail.com', '67890', 'no phone', '04-5-2000', TRUE, '11-5-2020', '1');

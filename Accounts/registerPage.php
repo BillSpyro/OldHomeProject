@@ -1,5 +1,3 @@
-<? include "register.php" ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -14,8 +12,8 @@
 <body>
 <!-- include header page -->
 <?php
-
 include "../Includes/header.php";
+include "register.php";
 ?>
 <!-- basic registeration form  -->
 <h1>Register Page</h1>

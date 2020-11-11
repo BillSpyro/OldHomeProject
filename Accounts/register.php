@@ -12,7 +12,6 @@ $result = mysqli_query($link,$sql);
 
 //Checks if the user registered as a patient
 if (isset($_POST['registerPatient'])) {
-  session_start();
   $role = $_SESSION['role'];
   $first_name = $_SESSION['first_name'];
   $last_name = $_SESSION['last_name'];
@@ -32,7 +31,7 @@ if (isset($_POST['registerPatient'])) {
   }
 
   // Attempt insert query execution
-  $sql = "INSERT INTO queue (role_id, first_name, last_name, email, password, phone, dateOfBirth, family_code, emergency_contact, relation_emergency) VALUES ('$role_id', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth', '$family_code', '$emergency_contact', '$relation_emergency')";
+  $sql = "INSERT INTO accounts (role_id, first_name, last_name, email, password, phone, dateOfBirth, family_code, emergency_contact, relation_emergency) VALUES ('$role_id', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth', '$family_code', '$emergency_contact', '$relation_emergency')";
   session_unset();
   session_destroy();
   if (mysqli_query($link, $sql)) {
@@ -47,7 +46,6 @@ if (isset($_POST['registerPatient'])) {
 
 if (isset($_POST['register'])) {
 // Escape user inputs for security
-session_start();
 $role = $_POST['role'];
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
@@ -58,8 +56,6 @@ $dateOfBirth = $_POST['dateOfBirth'];
 
 $sql = "SELECT * FROM accounts WHERE email='$email'";
 $res = mysqli_query($link, $sql);
-
-session_start();
 
 if (mysqli_num_rows($res) > 0){
   //Checks if email is already used in DB
@@ -84,7 +80,7 @@ if (mysqli_num_rows($res) > 0){
   }
 
   // Attempt insert query execution
-  $sql = "INSERT INTO queue (role_id, first_name, last_name, email, password, phone, dateOfBirth) VALUES ('$role_id', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth')";
+  $sql = "INSERT INTO accounts (role_id, first_name, last_name, email, password, phone, dateOfBirth) VALUES ('$role_id', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth')";
   session_unset();
   session_destroy();
   if (mysqli_query($link, $sql)) {

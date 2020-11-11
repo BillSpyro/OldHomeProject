@@ -8,7 +8,7 @@ if ($_SESSION['access_level'] >= 4){
       die("ERROR: Could not connect. " . mysqli_connect_error());
   }
 
-$sql = "SELECT q.*, r.* FROM queue q, roles r WHERE r.role_id = q.role_id";
+$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE r.role_id = a.role_id and a.approved = FALSE";
 
 $nameArray = array();
 $roleArray = array();
@@ -46,39 +46,38 @@ $list = $_POST['list'];
 
             if ($current_value == "Yes"){
               $first_name = $next_value;
-              $sql = "SELECT * FROM queue WHERE first_name='$first_name'";
+              $sql = "SELECT * FROM accounts WHERE first_name='$first_name' and approved = FALSE";
               $res = mysqli_query($link, $sql);
 
               if (mysqli_query($link, $sql)) {
               while ($row = mysqli_fetch_array($res)){
-                $role_id = $row['role_id'];
-                $last_name = $row['last_name'];
                 $email = $row['email'];
-                $password = $row['password'];
-                $phone = $row['phone'];
-                $dateOfBirth = $row['dateOfBirth'];
-                $family_code = $row['family_code'];
-                $emergency_contact = $row['emergency_contact'];
-                $relation_emergency = $row['relation_emergency'];
               }
-              $sql = "DELETE FROM queue WHERE first_name = '$first_name'";
+              $sql = "UPDATE accounts SET approved = TRUE WHERE first_name = '$first_name' and email = '$email'";
               $res = mysqli_query($link, $sql);
-              $sql = "INSERT INTO accounts (role_id, first_name, last_name, email, password, phone, dateOfBirth, family_code, emergency_contact, relation_emergency) VALUES ('$role_id', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth', '$family_code', '$emergency_contact', '$relation_emergency')";
-              $res = mysqli_query($link, $sql);
-              //echo "Added successfully";
             }else {
               echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 
             }
        } elseif ($current_value == "No"){
          $first_name = $next_value;
-         $sql = "DELETE FROM queue WHERE first_name='$first_name'";
+         $sql = "SELECT * FROM accounts WHERE first_name='$first_name' and approved = FALSE";
          $res = mysqli_query($link, $sql);
+
+         if (mysqli_query($link, $sql)) {
+         while ($row = mysqli_fetch_array($res)){
+           $email = $row['email'];
+         }
+         $sql = "DELETE FROM accounts WHERE first_name='$first_name' and email = '$email'";
+         $res = mysqli_query($link, $sql);
+       }else {
+         echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+
        }
      }
     }
   }
-}
+}}
 
 // Close connection
 mysqli_close($link);
