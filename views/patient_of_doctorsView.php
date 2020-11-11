@@ -17,7 +17,19 @@ $link = mysqli_connect("localhost", "root", "","oldHome");
 include "../Includes/header.php";
 ?>
     <h1>patient Information for Doctors only!</h1>
+    <form class="search" action="patient_info.php" method="post">
+    <input type="text" name="name" id="name" placeholder="id" >
+    <input type="text" name="age" id="age" placeholder="age" >
+    <input type="text" name="emergency_contact" id="emergency_contact" placeholder="emerg_contact" >
+    <input type="text" name="emergency_con_name" id="id" placeholder="emerg_con_name" >
+    <input type="text" name="admission_date" id="id" placeholder="Admi_date" >
+    <input class="save" name="additional_Patient_info" type="submit" value="search">
+
+
+    </form>
+    <div class="patient-info">
 <?php
+
 $sql = "SELECT * FROM accounts WHERE role_id=14;";
 $result = mysqli_query($link, $sql);
 $resultCheck = mysqli_num_rows($result);
@@ -52,7 +64,7 @@ if ($resultCheck > 0) {
 include "../Includes/footer.php";
 
 ?>
-
+</div>
 
 </body>
 </html>
