@@ -41,10 +41,12 @@ include "employee.php";
   </tr>
 <?php endfor ?>
 </table>
+<input class="save" name="searchall" type="submit" value="Show All">
 <input class="save" name="search" type="submit" value="Search">
 <input class="cancel" type="reset" value="Cancel">
 </form>
 
+<?php if ($_SESSION['access_level'] >= 5): ?>
 <form class="employeeSearch" action="employeePage.php" method="post">
 <p>
   <label for="id">Emp ID:</label>
@@ -57,6 +59,7 @@ include "employee.php";
 <input class="save" name="update" type="submit" value="Ok">
 <input class="cancel" type="reset" value="Cancel">
 </form>
+<?php endif ?>
 
 <?php
 include "../Includes/footer.php";
