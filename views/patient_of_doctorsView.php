@@ -30,7 +30,7 @@ include "../Includes/header.php";
     <div class="patient-info">
 <?php
 
-$sql = "SELECT * FROM accounts WHERE role_id=14;";
+$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'patient';";
 $result = mysqli_query($link, $sql);
 $resultCheck = mysqli_num_rows($result);
 if ($resultCheck > 0) {
