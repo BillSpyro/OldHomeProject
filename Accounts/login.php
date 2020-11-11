@@ -13,7 +13,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 //Checks matching email and password
-$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE email = '$email' and password = '$password' and r.role_id = a.role_id";
+$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE email = '$email' and password = '$password' and r.role_id = a.role_id and a.approved = TRUE";
 $result = mysqli_query($link,$sql);
 
 $count = mysqli_num_rows($result);

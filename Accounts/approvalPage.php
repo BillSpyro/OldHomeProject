@@ -30,8 +30,8 @@ include "approval.php";
   <tr>
     <td><?php echo $name; ?></td>
     <td><?php echo $role; ?></td>
-    <td><input type="radio" id="yes" name="list[<?php echo $name ?>]" value="Yes-<?php echo $name ?>"></td>
-    <td><input type="radio" id="no" name="list[<?php echo $name ?>]" value="No-<?php echo $name ?>"></td>
+    <td><input type="radio" id="yes" name="list[<?php echo $name . "-" . $role ?>]" value="Yes-<?php echo $name . "-" . $role ?>"></td>
+    <td><input type="radio" id="no" name="list[<?php echo $name . "-" . $role ?>]" value="No-<?php echo $name . "-" . $role ?>"></td>
   </tr>
 <?php endfor ?>
 </table>

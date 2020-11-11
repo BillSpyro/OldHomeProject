@@ -1,5 +1,3 @@
-<? include "register.php" ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -14,6 +12,7 @@
   <!-- basic patient registration form page -->
 <?php
 include "../Includes/header.php";
+include "register.php"
 ?>
 <form action="registerPatient.php" method="post">
     <p>
