@@ -13,7 +13,9 @@
 include "../Includes/header.php";
 include "role.php";
 ?>
-<table>
+<div class="current_role">
+<h1>Current Roles</h1>
+<table id="roles">
   <tr>
     <th>Role</th>
     <th>Access Level</th>
@@ -28,6 +30,8 @@ include "role.php";
   </tr>
 <?php endfor ?>
 </table>
+</div>
+
 <form class="role" action="rolePage.php" method="post">
 <p>
     <label for="newrole">New Role:</label>
