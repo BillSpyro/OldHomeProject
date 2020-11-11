@@ -115,6 +115,19 @@ input.cancel  {
     padding-top: 20px;
     clear: both;
   }
+
+
+  .search input {
+      display: inline;
+      width: 100px;
+  }
+  .patient-info {
+      margin-left: 250px;;
+  }
+  .patient-info td {
+        padding: 7px;;
+  }
+
   /* roles style */
 
   .role {
@@ -168,3 +181,4 @@ input.cancel  {
     padding-top: 20px;
     text-transform: uppercase;
 }
+
