@@ -15,6 +15,8 @@ $link = mysqli_connect("localhost", "root", "","oldHome");
 <body>
 <?php
 include "../Includes/header.php";
+include "patient_info.php";
+
 ?>
     <h1>patient Information for Doctors only!</h1>
     <form class="search" action="patient_info.php" method="post">
@@ -23,12 +25,36 @@ include "../Includes/header.php";
     <input type="text" name="emergency_contact" id="emergency_contact" placeholder="emerg_contact" >
     <input type="text" name="emergency_con_name" id="id" placeholder="emerg_con_name" >
     <input type="text" name="admission_date" id="id" placeholder="Admi_date" >
-    <input class="save" name="additional_Patient_info" type="submit" value="search">
-
-
+    <input class="save" name="patient_info_search" type="submit" value="search">
     </form>
+    <div class="search-result">
+    <table style="padding-left:250px;">
+  <tr>
+    <th>id</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Emergency Contact</th>
+    <th>Emergency Contact Name</th>
+    <th>Admission Date</th>
+  </tr>
+  <tr>
+    <td><?php  ?></td>
+  </tr>
+  <tr>
+    <td><?php  ?></td>
+  </tr>
+  <tr>
+    <td><?php  ?></td>
+  </tr>
+</table>
+
+    
+    
+    </div>
     <div class="patient-info">
 <?php
+
+
 
 $sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'patient';";
 $result = mysqli_query($link, $sql);
