@@ -26,6 +26,7 @@ $sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and
 $caregiver4Result = mysqli_query($link,$sql);
 
 if (isset($_POST['newRoster'])) {
+  $date = $_POST['date'];
   $supervisor = $_POST['supervisor'];
   $doctor = $_POST['doctor'];
   $caregiver1 = $_POST['caregiver1'];
@@ -33,13 +34,88 @@ if (isset($_POST['newRoster'])) {
   $caregiver3= $_POST['caregiver3'];
   $caregiver4 = $_POST['caregiver4'];
 
-  echo $supervisor;
-  echo $doctor;
-  echo $caregiver1;
-  echo $caregiver2;
-  echo $caregiver3;
-  echo $caregiver4;
+  $sql = "SELECT * FROM roster WHERE employee_id = '$supervisor' and roster_date = '$date'";
+  $result = mysqli_query($link,$sql);
+  $count = mysqli_num_rows($result);
 
+  if($count > 0) {
+
+    $supervisorError = "Error: Supervisor already on the roster for that day";
+
+  } else {
+
+    $sql = "INSERT INTO roster (employee_id, roster_date) VALUES ('$supervisor', '$date')";
+    $result = mysqli_query($link,$sql);
+
+  }
+
+  $sql = "SELECT * FROM roster WHERE employee_id = '$doctor' and roster_date = '$date'";
+  $result = mysqli_query($link,$sql);
+  $count = mysqli_num_rows($result);
+
+  if($count > 0) {
+
+    $doctorError = "Error: Doctor already on the roster for that day";
+
+  } else {
+
+  $sql = "INSERT INTO roster (employee_id, roster_date) VALUES ('$doctor', '$date')";
+  $result = mysqli_query($link,$sql);
+
+}
+
+$sql = "SELECT * FROM roster WHERE employee_id = '$caregiver1' and roster_date = '$date'";
+$result = mysqli_query($link,$sql);
+$count = mysqli_num_rows($result);
+
+if($count > 0) {
+
+  $caregiver1Error = "Error: Caregiver 1 already on the roster for that day";
+
+} else {
+
+  $sql = "INSERT INTO roster (employee_id, roster_date) VALUES ('$caregiver1', '$date')";
+  $result = mysqli_query($link,$sql);
+}
+
+$sql = "SELECT * FROM roster WHERE employee_id = '$caregiver2' and roster_date = '$date'";
+$result = mysqli_query($link,$sql);
+$count = mysqli_num_rows($result);
+
+if($count > 0) {
+
+  $caregiver2Error = "Error: Caregiver 2 already on the roster for that day";
+
+} else {
+  $sql = "INSERT INTO roster (employee_id, roster_date) VALUES ('$caregiver2', '$date')";
+  $result = mysqli_query($link,$sql);
+}
+
+$sql = "SELECT * FROM roster WHERE employee_id = '$caregiver3' and roster_date = '$date'";
+$result = mysqli_query($link,$sql);
+$count = mysqli_num_rows($result);
+
+if($count > 0) {
+
+  $caregiver3Error = "Error: Caregiver 3 already on the roster for that day";
+
+} else {
+  $sql = "INSERT INTO roster (employee_id, roster_date) VALUES ('$caregiver3', '$date')";
+  $result = mysqli_query($link,$sql);
+}
+
+$sql = "SELECT * FROM roster WHERE employee_id = '$caregiver4' and roster_date = '$date'";
+$result = mysqli_query($link,$sql);
+$count = mysqli_num_rows($result);
+
+if($count > 0) {
+
+  $caregiver4Error = "Error: Caregiver 4 already on the roster for that day";
+
+} else {
+  $sql = "INSERT INTO roster (employee_id, roster_date) VALUES ('$caregiver4', '$date')";
+  $result = mysqli_query($link,$sql);
+}
 }
 // Close connection
 mysqli_close($link);
