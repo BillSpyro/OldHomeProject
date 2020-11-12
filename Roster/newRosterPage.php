@@ -23,10 +23,13 @@ include "newRoster.php";
   <div class="group1">
     <p>
         <label for="date">Date:</label>
-        <input type="text" name="date" id="date" required>
+        <input type="date" name="date" id="date" required>
     </p>
   <p>
   <label for="supervisor">Supervisor:</label>
+  <?php if (isset($supervisorError)): ?>
+    <span><?php echo $supervisorError; ?></span>
+  <?php endif ?>
       <select name="supervisor" id="supervisor">
         <?php  while ($row = mysqli_fetch_array($supervisorResult)): ?>
       <option value=<? echo $row['id']; ?>><? echo $row['first_name'] . " " . $row['last_name']; ?></option>
@@ -35,6 +38,9 @@ include "newRoster.php";
   </p>
   <p>
   <label for="doctor">Doctor:</label>
+  <?php if (isset($doctorError)): ?>
+    <span><?php echo $doctorError; ?></span>
+  <?php endif ?>
       <select name="doctor" id="doctor">
         <?php  while ($row = mysqli_fetch_array($doctorResult)): ?>
       <option value=<? echo $row['id']; ?>><? echo $row['first_name'] . " " . $row['last_name']; ?></option>
@@ -43,6 +49,9 @@ include "newRoster.php";
   </p>
   <p>
   <label for="caregiver1">Caregiver 1:</label>
+  <?php if (isset($caregiver1Error)): ?>
+    <span><?php echo $caregiver1Error; ?></span>
+  <?php endif ?>
       <select name="caregiver1" id="caregiver1">
         <?php  while ($row = mysqli_fetch_array($caregiver1Result)): ?>
       <option value=<? echo $row['id']; ?>><? echo $row['first_name'] . " " . $row['last_name']; ?></option>
@@ -51,6 +60,9 @@ include "newRoster.php";
   </p>
   <p>
   <label for="caregiver2">Caregiver 2:</label>
+  <?php if (isset($caregiver2Error)): ?>
+    <span><?php echo $caregiver2Error; ?></span>
+  <?php endif ?>
       <select name="caregiver2" id="caregiver2">
         <?php  while ($row = mysqli_fetch_array($caregiver2Result)): ?>
       <option value=<? echo $row['id']; ?>><? echo $row['first_name'] . " " . $row['last_name']; ?></option>
@@ -59,6 +71,9 @@ include "newRoster.php";
   </p>
   <p>
   <label for="caregiver3">Caregiver 3:</label>
+  <?php if (isset($caregiver3Error)): ?>
+    <span><?php echo $caregiver3Error; ?></span>
+  <?php endif ?>
       <select name="caregiver3" id="caregiver3">
         <?php  while ($row = mysqli_fetch_array($caregiver3Result)): ?>
       <option value=<? echo $row['id']; ?>><? echo $row['first_name'] . " " . $row['last_name']; ?></option>
@@ -67,6 +82,9 @@ include "newRoster.php";
   </p>
   <p>
   <label for="caregiver4">Caregiver 4:</label>
+  <?php if (isset($caregiver4Error)): ?>
+    <span><?php echo $caregiver4Error; ?></span>
+  <?php endif ?>
       <select name="caregiver4" id="caregiver4">
         <?php  while ($row = mysqli_fetch_array($caregiver4Result)): ?>
       <option value=<? echo $row['id']; ?>><? echo $row['first_name'] . " " . $row['last_name']; ?></option>
