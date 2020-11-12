@@ -15,43 +15,26 @@ $link = mysqli_connect("localhost", "root", "","oldHome");
 <body>
 <?php
 include "../Includes/header.php";
-include "patient_info.php";
-
 ?>
-    <h1>patient Information for Doctors only!</h1>
-    <form class="search" action="patient_info.php" method="post">
-    <input type="text" name="name" id="name" placeholder="id" >
-    <input type="text" name="age" id="age" placeholder="age" >
+    <h1>patient Information for Doctors, Admins, supervisors,and Cargivers only!</h1>
+    <form class="search" action="patient_of_doctorsView.php" method="post">
+    <input type="text" name="id" id="name" placeholder="id" >
+    <input type="text" name="first_name" id="name" placeholder="name" >
+    <input type="text" name="dateOfBirth" id="age" placeholder="age" >
     <input type="text" name="emergency_contact" id="emergency_contact" placeholder="emerg_contact" >
-    <input type="text" name="emergency_con_name" id="id" placeholder="emerg_con_name" >
-    <input type="text" name="admission_date" id="id" placeholder="Admi_date" >
+    <input type="text" name="family_code" id="family_code" placeholder="emerg_con_name" >
+    <input type="text" name="admission_date" id="admission_date" placeholder="Admi_date" >
     <input class="save" name="patient_info_search" type="submit" value="search">
     </form>
-    <div class="search-result">
-    <table style="padding-left:250px;">
-  <tr>
-    <th>id</th>
-    <th>Name</th>
-    <th>Age</th>
-    <th>Emergency Contact</th>
-    <th>Emergency Contact Name</th>
-    <th>Admission Date</th>
-  </tr>
-  <tr>
-    <td><?php  ?></td>
-  </tr>
-  <tr>
-    <td><?php  ?></td>
-  </tr>
-  <tr>
-    <td><?php  ?></td>
-  </tr>
-</table>
 
-    
-    
+    <div class="search-result">
+
+        <?php
+            include "patient_info.php";
+
+        ?>
     </div>
-    <div class="patient-info">
+<div class="patient-info">
 <?php
 
 
@@ -86,6 +69,8 @@ if ($resultCheck > 0) {
        
     }
     echo "</table>";
+}else {
+    echo "sorry, there is no dat in your databse";
 }
 include "../Includes/footer.php";
 
