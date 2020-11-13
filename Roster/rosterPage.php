@@ -10,7 +10,7 @@
 <body>
 <?php
     
-    include "../includes/header.php";
+    include "../Includes/header.php";
 ?>
     <h1>schedule</h1>
     <form action="rosterPage.php" method="post">
@@ -27,7 +27,7 @@
     </div>
     <?php
     
-    include "../includes/footer.php";
+    include "../Includes/footer.php";
 ?>
 </body>
 </html>
