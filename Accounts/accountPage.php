@@ -23,6 +23,8 @@ include "../Includes/header.php";
       <li><a href="../Accounts/additional_Patient_infoPage.php">Additional Patient Info</a></li>
       <li><a href="../views/employeePage.php">Employee</a></li>
 
+      <li><a href="../Roster/newRosterPage.php">New Roster</a></li>
+
       <?php endif ?>
       <?php if ($_SESSION['access_level'] >= 5): ?>
       <li><a href="../Roles/rolePage.php">Roles</a></li>
@@ -31,6 +33,7 @@ include "../Includes/header.php";
       <?php if ($_SESSION['access_level'] >=2): ?>
       <li><a href="../views/patient_of_doctorsView.php">PatientInformation</a></li>
       <?php endif ?>
+      <li><a href="../Roster/rosterPage.php">Roster</a></li>
     </ul>
 
     <h2>
