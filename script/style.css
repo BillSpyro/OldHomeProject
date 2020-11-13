@@ -197,3 +197,7 @@ input.cancel  {
 .search-result {
     margin-left: 200px;
 }
+.schedul-result table {
+    margin-left: 200px;
+    background-color: lightgray;
+}
