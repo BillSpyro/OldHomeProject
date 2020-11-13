@@ -13,10 +13,10 @@
     include "../includes/header.php";
 ?>
     <h1>schedule</h1>
-    <form action="roster.php" method="post">
+    <form action="rosterPage.php" method="post">
         <label for="date"></label>
-        <input type="text" name="date" id="date" require>
-        <input class="save" type="submit" name="date" id="date" value="Get">
+        <input type="date" name="roster_date" id="roster_date" require>
+        <input class="save" type="submit" name="search_roster" id="date" value="Get">
     </form>
     <div class="schedul-result">
 
