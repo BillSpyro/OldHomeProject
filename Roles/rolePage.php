@@ -13,6 +13,7 @@
 include "../Includes/header.php";
 include "role.php";
 ?>
+<div class="role-info">
 <div class="current_role">
 <h1>Current Roles</h1>
 <table id="roles">
@@ -31,8 +32,11 @@ include "role.php";
 <?php endfor ?>
 </table>
 </div>
+<div class="new-role">
+<h1>New Role</h1>
 
 <form class="role" action="rolePage.php" method="post">
+  
 <p>
     <label for="newrole">New Role:</label>
     <input type="text" name="new_role" id="newrole" required>
@@ -47,7 +51,8 @@ include "role.php";
 <input class="save" name="role" type="submit" value="Ok">
 <input class="cancel" type="reset" value="Cancel">
 </form>
-
+</div>
+</div>
 <?php
 include "../Includes/footer.php";
 ?>

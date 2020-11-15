@@ -13,9 +13,7 @@
 include "../Includes/header.php";
 ?>
 <!--Greets the logged in user-->
-    <h1>hello <?php
-    echo $_SESSION["first_name"] . " " . $_SESSION["last_name"] ; ?></h1>
-
+   <div class="headr2">
     <?php if ($_SESSION['access_level'] >= 4): ?>
     <ul class="admin">
       <li><a href="../Accounts/approvalPage.php">Registration Approval</a></li>
@@ -32,12 +30,16 @@ include "../Includes/header.php";
 
       <?php if ($_SESSION['access_level'] >=2): ?>
       <li><a href="../views/patient_of_doctorsView.php">PatientInformation</a></li>
+      
       <?php endif ?>
       <li><a href="../Roster/rosterPage.php">Roster</a></li>
     </ul>
+  </div>
+    <h1>Hello<?php
+    echo " ".$_SESSION["first_name"] . " " . $_SESSION["last_name"] ; ?></h1>
 
     <h2>
-      Your Info
+      Here is your account information
     </h2>
 <div class="yourInfo">
     <?php

@@ -9,12 +9,13 @@
   <link href="../script/style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body class="addditionalInfo">
   <!-- basic patient registration form page -->
 <?php
 include "../Includes/header.php";
 include "additional_Patient_info.php";
 ?>
+<div class="additional-Info">
 <h1>Additional Information of Patient</h1>
 <form action="additional_Patient_infoPage.php" method="post">
     <p>
@@ -46,6 +47,7 @@ include "additional_Patient_info.php";
     <input class="cancel" type="reset" value="Cancel">
     <?php endif ?>
 </form>
+</div>
 <!-- include footer page -->
 <?php
 include "../Includes/footer.php";

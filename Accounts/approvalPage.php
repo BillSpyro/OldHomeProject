@@ -10,11 +10,12 @@
   <link href="../script/style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body class="approvalPg">
 <?php
 include "../Includes/header.php";
 include "approval.php";
 ?>
+<div class="approval-page">
 <form class="approval" action="approvalPage.php" method="post">
 <table>
   <tr>
@@ -39,9 +40,8 @@ include "approval.php";
 <input class="save" name="approve" type="submit" value="Ok">
 <input class="cancel" type="reset" value="Cancel">
 </form>
-
+</div>
 <?php
 include "../Includes/footer.php";
 ?>
-</body>
-</html>
+

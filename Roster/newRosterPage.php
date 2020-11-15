@@ -16,6 +16,7 @@ include "../Includes/header.php";
 include "newRoster.php";
 ?>
 <!-- basic registeration form  -->
+<div class="roster-page">
 <h1>New Roster</h1>
 
 <form class="register" action="newRosterPage.php" method="post">
@@ -59,6 +60,8 @@ include "newRoster.php";
       </select>
   </p>
   <p>
+  </div>
+  <div class="group1">
   <label for="caregiver2">Caregiver 2:</label>
   <?php if (isset($caregiver2Error)): ?>
     <span><?php echo $caregiver2Error; ?></span>
@@ -96,6 +99,7 @@ include "newRoster.php";
     </div>
 </div>
 </form>
+</div>
 <!-- include footer page -->
 <?php
 include "../Includes/footer.php";

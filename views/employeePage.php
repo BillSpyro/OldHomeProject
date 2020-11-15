@@ -13,15 +13,23 @@
 include "../Includes/header.php";
 include "employee.php";
 ?>
+<h1>Search employees</h1>
+<div class="employee-page">
+  
 <form class="employeeSearch" action="employeePage.php" method="post">
-<table>
+<table class="employee-table">
   <tr>
-    <th><input type="id" name="id" id="id"></th>
-    <th><input type="name" name="name" id="name"></th>
-    <th><input type="role" name="role" id="role"></th>
-    <th><input type="salary" name="salary" id="salary"></th>
+    <th><input type="id" name="id" id="id" placeholder="ID"></th>
+    <th><input type="name" name="name" placeholder="name" id="name"></th>
+    <th><input type="role" name="role" id="role" placeholder="role"></th>
+    <th><input type="salary" name="salary" id="salary" placeholder="salary"></th>
+    <th><input class="save" name="searchall" type="submit" value="Show All"></th>
+    <th><input class="save" name="search" type="submit" value="Search"></th>
   </tr>
   <tr>
+    <th><h2>Employees</h2></th>
+  </tr>
+  <tr class="column">
     <th>ID</th>
     <th>Name</th>
     <th>Role</th>
@@ -33,7 +41,7 @@ include "employee.php";
  $role = $roleArray[$i];
  $salary = $salaryArray[$i];
       ?>
-  <tr>
+  <tr class="cell">
     <td><?php echo $id; ?></td>
     <td><?php echo $name; ?></td>
     <td><?php echo $role; ?></td>
@@ -41,13 +49,13 @@ include "employee.php";
   </tr>
 <?php endfor ?>
 </table>
-<input class="save" name="searchall" type="submit" value="Show All">
-<input class="save" name="search" type="submit" value="Search">
-<input class="cancel" type="reset" value="Cancel">
+
 </form>
 
 <?php if ($_SESSION['access_level'] >= 5): ?>
-<form class="employeeSearch" action="employeePage.php" method="post">
+<div class="updateemployee-Salary">
+  <h2>Update Employee's Salary</h2>
+<form class="updateemployeeSalary" action="employeePage.php" method="post">
 <p>
   <label for="id">Emp ID:</label>
   <input type="number" name="id" id="id" required>
@@ -60,9 +68,11 @@ include "employee.php";
 <input class="cancel" type="reset" value="Cancel">
 </form>
 <?php endif ?>
-
+</div>
+</div>
 <?php
 include "../Includes/footer.php";
 ?>
+
 </body>
 </html>

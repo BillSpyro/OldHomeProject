@@ -9,13 +9,14 @@
 
 </head>
 
-<body>
+<body class="registePage">
 <!-- include header page -->
 <?php
 include "../Includes/header.php";
 include "register.php";
 ?>
 <!-- basic registeration form  -->
+<div class="register-page">
 <h1>Register Page</h1>
 
 <form class="register" action="registerPage.php" method="post">
@@ -66,6 +67,7 @@ include "register.php";
 </div>
 </div>
 </form>
+</div>
 <!-- include footer page -->
 <?php
 include "../Includes/footer.php";

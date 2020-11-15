@@ -1,23 +1,39 @@
 html {
     width: 100%;
     height: 100%;
-    background-color: #E6E6FA;
+    background-color: #DCDCDC;
  }
 
- body {
-     padding: 0;
-     margin: 0;
+ body.home {
+    margin: 0;
+    padding: 0;
+    margin: 0;
+    background-image: url("../Accounts/images/hospital.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
  }
+ 
  /* header style */
- header {
-    height: 60px;
-    background-color: #f2f2f26b;
-    box-shadow: 0 0 1s0px #000;
+ header, .headr2 {
+    height: 100px;
+    background-color: #006400;
+    width: 100%;
+}
+
+/* second header style  */
+.headr2 ul  {
+    padding-left: 100px;
+    float: left;
+    position: absolute;
+    top: 5%;
 }
 ul {
     float: right;
     position: relative;
     right: 10%;
+    padding-top: 3%;
 
 }
 ul li {
@@ -25,12 +41,15 @@ ul li {
     list-style-type: none;
     padding-right: 20px;
 }
+ul li a:hover {
+    text-decoration: underline;
+}
 
 ul li a {
     
     text-decoration: none;
-    color: blue;
-    font-size: 18px;
+    color: whitesmoke;
+    font-size: 24px;
     padding: 0px 0px 0px 0px;
 
 }
@@ -47,7 +66,7 @@ ul li a {
     
 }
 .home-log li a{
-    background-color: teal;
+    background-color: #006400;
     padding:20px;
     width: 100%;
     text-decoration: none;
@@ -58,32 +77,32 @@ ul li a {
 /* footer style */
  
  footer {
-    position: absolute;
-    bottom: 0%;
-    width: 100%;
-    height: 40%;
-    color: white;
-    height: 100px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
     background-color: black;
-    position: absolute;
     text-align: center;
-    margin: auto;
+    color: whitesmoke;
     
 }
+
 footer h2 {
     text-transform: uppercase;
     
 }
 /* form style */
-form {
-    margin-right: 20%;
+ form{
+   
     text-align: center;
-
 }
+
 label {
     color: blue;
     font-size: 22px;;
 }
+
 input, select{
     display: block;
     margin: 10px auto;
@@ -99,6 +118,7 @@ input.save  {
     display: block;
     background-color: green;
 }
+
 input.cancel  {
     background-color: brown;
 }
@@ -120,46 +140,53 @@ input.cancel  {
       display: inline;
       width: 100px;
   }
-  .patient-info {
-      margin-left: 250px;;
-  }
+  
   .patient-info td {
         padding: 7px;;
   }
 
   /* roles style */
 
-  .role {
+  .new-role {
+    text-align: center;
     margin-top: -300px;
     margin-left: 400px;
   }
+  .role-info {
+      
+    margin-left: 10%;
+  }
   .current_role {
-      margin-left: 10%;
+      margin-top: 3rem;
   }
 
   #roles {
-    font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     
   }
   
   #roles td, #roles th {
-    border: 1px solid #ddd;
-    padding: 8px;
-    background-color: gray;
-    color: white;
+    padding: 12px 15px
   }
-  
+  #roles tr td:nth-of-type(even) {
+    background-color: #f3f3f3;
+    }
+
   #roles th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    background-color: #009879;
+    color: #ffffff;
     text-align: left;
-    background-color: #4CAF50;
-    color: white;
   }
+
   ul.admin {
       right: 30%;
   }
+  /* authorized users info after logged in  */
 
   .info {
       background-color: green;
@@ -174,12 +201,7 @@ input.cancel  {
   .yourInfo td, .yourInfo  th {
       padding: 7px;;
   }
-
- h1, h2 {
-    padding-left: 20px;
-    padding-top: 20px;
-    text-transform: uppercase;
-}
+/* patient info style */
 .patient-info table {
     
     background-color: LIGHTgray;
@@ -194,10 +216,81 @@ input.cancel  {
     border-top: none;
     border-bottom: none;
 }
+/* search box or inpute stayle */
 .search-result {
     margin-left: 200px;
 }
+/* schedule result after searching the specific date -- page style */
 .schedul-result table {
     margin-left: 200px;
     background-color: lightgray;
 }
+/* schedule result after searching the specific employee or search all button -- page style */
+
+.employeeSearch table tr input {
+    width: 100px;;
+}
+.updateemployee-Salary {
+    text-align: center;
+    margin-left: 60%;
+    margin-top: -30%;
+    
+    
+}
+
+/* home page content style */
+section.home {
+    font-weight: bold;
+    color: #000000;
+}
+/* login page  style */
+.login-page, .register-page, .roster-page {  
+  background-color:  #63599e;
+  width: 600px;
+  height: 500px;
+  position: absolute;
+  top: 25%;
+  right: 25%;
+  color: white;
+  border-radius: 3%;
+  
+}
+
+
+.register-page  {
+    padding-bottom: 1rem;
+}
+.register-page label, .login-page label  {
+    color: whitesmoke;
+}
+
+/* approval page style */
+
+.approval-page {
+  text-align: center;
+}
+.approval-page #yes, .approval-page #no {
+    width: 50px;
+}
+.additional-Info, .rosterPage {
+    text-align: center;
+    padding-top: 4rem;
+}
+/* employee page */
+.employee-page  {
+   padding-top: 3rem;
+}
+/* patient-infoview page */
+div.patient-info, .patient_info--result {
+    padding-left: 2rem;
+}
+
+div.patient-info form {
+    text-align: left;
+    
+}
+.column th {
+    background-color: #4CAF50;
+  color: white;
+}
+tr.cell :nth-child(even){background-color: #f2f2f2}

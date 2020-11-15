@@ -12,19 +12,21 @@
     
     include "../Includes/header.php";
 ?>
-    <h1>schedule</h1>
+<div class="rosterPage">
+    <h1>Search Schedule</h1>
     <form action="rosterPage.php" method="post">
         <label for="date"></label>
         <input type="date" name="roster_date" id="roster_date" require>
         <input class="save" type="submit" name="search_roster" id="date" value="Get">
     </form>
-    <div class="schedul-result">
+    <div id="schedul-result">
 
     <?php
     
     include "roster.php";
     ?>
     </div>
+</div>
     <?php
     
     include "../Includes/footer.php";
