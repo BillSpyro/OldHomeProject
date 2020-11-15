@@ -7,13 +7,14 @@
 
     <title>Document</title>
 </head>
-<body>
+<body class="home">
 <!-- include header page -->
 <?php
 
 include "../Includes/header.php";
 ?>
 <!-- welcome page, login, and register link -->
+<section class="home">
 <h1>Hi Welcome to Home Page!</h1>  
    <div class="home-log">
        <p>Have an account? Log in.</p>
@@ -21,6 +22,7 @@ include "../Includes/header.php";
         <p>Don't have an account? register.</p>
         <li><a href="../Accounts/registerPage.php">Register</a></li>
 </div>
+</section>
 <!-- include footer page -->
 <?php
 include "../Includes/footer.php"

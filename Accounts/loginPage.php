@@ -10,17 +10,20 @@
   <link href="../script/style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body class="login">
   <!-- include header page -->
 <?php
 include "../Includes/header.php";
 ?>
 <!-- basic login form -->
+
+<div class="login-page">
 <h1>LOG IN HERE </h1>
-<div>
 <form action="loginPage.php" method="post">
+  
   <!--Displays error if the login fails-->
   <?php if (isset($error)): ?>
+
     <span><?php echo $error; ?></span>
   <?php endif ?>
     <p>

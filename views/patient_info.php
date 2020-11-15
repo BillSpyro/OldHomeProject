@@ -85,5 +85,39 @@ if ($link === false) {
         }else {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link); 
         }
+    }elseif(isset($_POST['showall']) || !isset($_POST['showall']) ) {
+        $sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'patient';";
+        $result = mysqli_query($link, $sql);
+        $resultCheck = mysqli_num_rows($result);
+        if ($resultCheck > 0) {
+            echo "<table>";
+            echo "<tr>";
+            echo "<th>id</th>";
+            echo "<th>Name</th>";
+            echo "<th>Age</th>";
+            echo "<th>Emergency Contact</th>";
+            echo "<th>Emergency Contact Name</th>";
+            echo "<th>Admission Date</th>";
+            echo "</tr>";
+            while ($row = mysqli_fetch_array($result)) {
+                echo "<tr background-color= '#4CAF50'>";
+                echo "<td>" . $row['id']  . "</td>";
+                echo "<td>" . $row['first_name'] . $row['last_name']. "</td>";
+                $born = $row['dateOfBirth'];
+                $now = time();
+                $dob = strtotime($born);
+                $difference = $now - $dob;
+                $age = floor($difference / 31556926);
+                echo "<td>" . $age . "</td>";
+                echo "<td>" . $row['emergency_contact'] . "</td>";
+                echo "<td>" . $row['family_code'] . "</td>";
+                echo "<td>" . $row['admission_date'] . "</td>";
+                echo "</tr>";
+            
+            }
+            echo "</table>";
+        }else {
+            echo "sorry, there is no dat in your databse";
+        }
     }
 ?>
