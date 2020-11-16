@@ -94,4 +94,5 @@ VALUES (1, 'Charles', 'Crandall', 'admin@gmail.com', '12345', '717-381-1131', '0
       (4, 'Care', 'Giver', 'caregiver3@gmail.com', '123', '717-345-3451', '01-1-2000', TRUE, 3, '11-1-2020', '1,000'),
       (4, 'Alex', 'Mike', 'caregiver4@gmail.com', '123', '717-752-8534', '10-31-2000', TRUE, 4, '11-2-2020', '20'),
       (2, 'John', 'Doe', 'supervisor@gmail.com', '123', '717-385-8683', '12-25-2000', TRUE, NULL, '11-6-2020', '10,000'),
-      (3, 'Jane', 'Doe', 'doctor@gmail.com', '123', '276-534-2345', '04-1-2000', TRUE, NULL, '11-9-2020', '5,000');
+      (3, 'Jane', 'Doe', 'doctor@gmail.com', '123', '276-534-2345', '04-1-2000', TRUE, NULL, '11-9-2020', '5,000'),
+      (5, 'Old', 'Man', 'patient@gmail.com', '123', '717-634-7422', '05-25-2000', TRUE, NULL, '11-4-2020', NULL);

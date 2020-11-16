@@ -14,24 +14,27 @@ include "../Includes/header.php";
 ?>
 <!--Greets the logged in user-->
    <div class="headr2">
+     <ul class="admin">
+       
     <?php if ($_SESSION['access_level'] >= 4): ?>
-    <ul class="admin">
       <li><a href="../Accounts/approvalPage.php">Registration Approval</a></li>
-
       <li><a href="../Accounts/additional_Patient_infoPage.php">Additional Patient Info</a></li>
       <li><a href="../views/employeePage.php">Employee</a></li>
-
       <li><a href="../Roster/newRosterPage.php">New Roster</a></li>
-
       <?php endif ?>
+
       <?php if ($_SESSION['access_level'] >= 5): ?>
       <li><a href="../Roles/rolePage.php">Roles</a></li>
       <?php endif ?>
 
       <?php if ($_SESSION['access_level'] >=2): ?>
       <li><a href="../views/patient_of_doctorsView.php">PatientInformation</a></li>
-      
       <?php endif ?>
+
+      <?php if ($_SESSION['access_level'] == 2): ?>
+      <li><a href="../views/caregiverPage.php">Caregiver Home</a></li>
+      <?php endif ?>
+
       <li><a href="../Roster/rosterPage.php">Roster</a></li>
     </ul>
   </div>
@@ -75,28 +78,12 @@ include "../Includes/header.php";
     echo "<td>" . $_SESSION['family_code'] . "</td>";
     echo "<td>" . $_SESSION['emergency_contact'] . "</td>";
     echo "<td>" . $_SESSION['relation_emergency'] . "</td>";
-    echo "<td>" . $_SESSION['group']  . "</td>";
+    echo "<td>" . $_SESSION['patient_group']  . "</td>";
     echo "<td>" . $_SESSION['admission_date'] . "</td>";
     echo "<td>" . $_SESSION['salary']. "</td>";
     echo "</tr>";
     echo "</table>";
 
-    // echo "id: " . $_SESSION['id'] . "<br>";
-    // echo "role id: " .$_SESSION['role_id'] . "<br>";
-    // echo "access level: " .$_SESSION['access_level'] . "<br>";
-    // echo "first name: " .$_SESSION['first_name'] . "<br>";
-    // echo "last name: " .$_SESSION['last_name'] . "<br>";
-    // echo "email: " .$_SESSION['email'] . "<br>";
-    // echo "password: " .$_SESSION['password'] . "<br>";
-    // echo "phone: " .$_SESSION['phone'] . "<br>";
-    // echo "dateOfBirth: " .$_SESSION['dathOfBirth'] . "<br>";
-    // echo "family code: " .$_SESSION['family_code'] . "<br>";
-    // echo "emergency contact: " .$_SESSION['emergency_contact'] . "<br>";
-    // echo "relation emergency: " .$_SESSION['relation_emergency'] . "<br>";
-    // echo "group: " .$_SESSION['group'] . "<br>";
-    // echo "admission date: " .$_SESSION['admission_date'] . "<br>";
-    // echo "salary: " .$_SESSION['salary'] . "<br>";
-    // "</div>";
     ?>
 </div>
     <?php
