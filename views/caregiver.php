@@ -33,6 +33,24 @@ if ($result = mysqli_query($link, $sql)) {
     $error = "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 
+
+if (isset($_POST['caregiver'])) {
+
+  $list = $_POST['list'];
+
+  echo "You chose the following: <br>";
+  foreach ($list as $name){
+  echo $name."<br />";
+  }
+}
+
+
+
+
+
+
+
+
 // Close connection
 mysqli_close($link);
 } else {

@@ -36,12 +36,12 @@ include "caregiver.php";
       ?>
   <tr class="cell">
     <td><?php echo $name; ?></td>
-    <td><input type="checkbox" id="morningMed" name="<?php echo $id . "-" . "MorningMed" ?>" value="<?php echo $id . "-" . "MorningMed" ?>"></td>
-    <td><input type="checkbox" id="afternoonMed" name="<?php echo $id . "-" . "afternoonMed" ?>" value="<?php echo $id . "-" . "afternoonMed" ?>"></td>
-    <td><input type="checkbox" id="nightMed" name="<?php echo $id . "-" . "nightMed" ?>" value="<?php echo $id . "-" . "nightMed" ?>"></td>
-    <td><input type="checkbox" id="breakfast" name="<?php echo $id . "-" . "breakfast" ?>" value="<?php echo $id . "-" . "breakfast" ?>"></td>
-    <td><input type="checkbox" id="lunch" name="<?php echo $id . "-" . "lunch" ?>" value="<?php echo $id . "-" . "lunch" ?>"></td>
-    <td><input type="checkbox" id="dinner" name="<?php echo $id . "-" . "dinner" ?>" value="<?php echo $id . "-" . "dinner" ?>"></td>
+    <td><input type="checkbox" id="morningMed" name="list[]" value=<?php echo "morningMed-" . $id; ?>></td>
+    <td><input type="checkbox" id="afternoonMed" name="list[]" value="<?php echo "afternoonMed-" . $id; ?>"></td>
+    <td><input type="checkbox" id="nightMed" name="list[]" value="<?php echo "nightMed-" . $id; ?>"></td>
+    <td><input type="checkbox" id="breakfast" name="list[]" value="<?php echo "breakfast-" . $id; ?>"></td>
+    <td><input type="checkbox" id="lunch" name="list[]" value="<?php echo "lunch-" . $id; ?>"></td>
+    <td><input type="checkbox" id="dinner" name="list[]" value="<?php echo "dinner-" . $id; ?>"></td>
   </tr>
 <?php endfor ?>
 </table>
