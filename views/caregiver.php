@@ -39,9 +39,30 @@ if (isset($_POST['caregiver'])) {
   $list = $_POST['list'];
 
   echo "You chose the following: <br>";
+  if(!empty($list)){
   foreach ($list as $name){
-  echo $name."<br />";
+    echo $name . "<br />";
+    $checkArray = explode('-', $name);
+    $keys = array_keys($checkArray);
+    foreach(array_keys($keys) as $value){
+       $current_key = current($keys);
+       $current_value = $checkArray[$current_key];
+
+       $next_key = next($keys);
+       $next_value = $checkArray[$next_key] ?? null;
+       echo  "{$value}: current = ({$current_key} => {$current_value}); next = ({$next_key} => {$next_value})\n";
+
+       if (is_numeric($current_value)){
+         $first_name = $next_value;
+
+       }
+
+
+
+
   }
+}
+}
 }
 
 
