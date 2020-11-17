@@ -8,7 +8,7 @@ if ($_SESSION['access_level'] >= 4){
       die("ERROR: Could not connect. " . mysqli_connect_error());
   }
 
-$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE r.role_id = a.role_id and r.access_level >= 2";
+$sql = "SELECT a.*, r.*, e.* FROM accounts a, roles r, employees e WHERE r.role_id = a.role_id and r.access_level >= 2 and a.id = e.employee_id";
 
 $idArray = array();
 $nameArray = array();
@@ -32,7 +32,7 @@ if ($result = mysqli_query($link, $sql)) {
 }
 
 if (isset($_POST['searchall'])) {
-  $sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE r.role_id = a.role_id and r.access_level >= 2";
+  $sql = "SELECT a.*, r.*, e.* FROM accounts a, roles r, employees e WHERE r.role_id = a.role_id and r.access_level >= 2 and a.id = e.employee_id";
 
   $idArray = array();
   $nameArray = array();
@@ -64,7 +64,7 @@ $name = $_POST['name'];
 $role = $_POST['role'];
 $salary = $_POST['salary'];
 
-$sqlbase = "SELECT a.*, r.* FROM accounts a, roles r WHERE r.role_id = a.role_id and r.access_level >= 2";
+$sqlbase = "SELECT a.*, r.*, e.* FROM accounts a, roles r, employees e WHERE r.role_id = a.role_id and r.access_level >= 2 and a.id = e.employee_id";
 if (empty($id)){
   $sqlid = " and a.id LIKE '$id%'";
 } else {
@@ -81,9 +81,9 @@ if (empty($role)){
   $sqlrole = " and r.role_name = '$role'";
 }
 if (empty($salary)){
-  $sqlsalary = " and a.salary LIKE '$salary%'";
+  $sqlsalary = " and e.salary LIKE '$salary%'";
 } else {
-  $sqlsalary = " and a.salary = '$salary'";
+  $sqlsalary = " and e.salary = '$salary'";
 }
 
 $sql = $sqlbase . $sqlid . $sqlname . $sqlrole . $sqlsalary;
@@ -114,7 +114,7 @@ if ($_SESSION['access_level'] >= 5){
 if (isset($_POST['update'])) {
   $id = $_POST['id'];
   $salary = $_POST['salary'];
-  $sql = "UPDATE accounts SET salary = '$salary' WHERE id = '$id'";
+  $sql = "UPDATE employees SET salary = '$salary' WHERE employee_id = '$id'";
   $res = mysqli_query($link, $sql);
 }
 }

@@ -16,7 +16,7 @@ if ($link === false) {
         $family_code = $_POST['family_code'];
         $admission_date = $_POST['admission_date'];
         //$sql = "SELECT * FROM accounts WHERE id LIKE '$id%' and first_name LIKE '$first_name%' and dateOfBirth LIKE '$dateOfBirth%' and  emergency_contact LIKE '$emergency_contact%' and family_code LIKE '$family_code%';";
-        $sql_base = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'patient'";
+        $sql_base = "SELECT a.*, r.*, p.* FROM accounts a, roles r, patients p WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.id = p.patient_id";
         if (empty($id)){
             $sql_id = " and a.id LIKE '$id%'";
           }else {
@@ -33,21 +33,21 @@ if ($link === false) {
             $sql_Dateofbirth = " and a.dateOfBirth = '$dateOfBirth'";
           }
         if (empty($emergency_contact)){
-            $sql_emergenceycon = " and a.emergency_contact LIKE '$emergency_contact%'";
+            $sql_emergenceycon = " and p.emergency_contact LIKE '$emergency_contact%'";
           }else {
-            $sql_emergenceycon = " and a.emergency_contact = '$emergency_contact'";
+            $sql_emergenceycon = " and p.emergency_contact = '$emergency_contact'";
           }
         if (empty($family_code)){
-            $sql_familyCode = " and a.family_code LIKE '$family_code%'";
+            $sql_familyCode = " and p.family_code LIKE '$family_code%'";
           }else {
-            $sql_familyCode = " and a.family_code = '$family_code'";
+            $sql_familyCode = " and p.family_code = '$family_code'";
           }
         if (empty($admission_date)){
-            $sql_admissionDate = " and a.admission_date LIKE '$admission_date%'";
+            $sql_admissionDate = " and p.admission_date LIKE '$admission_date%'";
           }else {
-            $sql_admissionDate = " and a.admission_date = '$admission_date'";
+            $sql_admissionDate = " and p.admission_date = '$admission_date'";
           }
-          
+
         $sql = $sql_base . $sql_id . $sql_firstName . $sql_Dateofbirth . $sql_emergenceycon .$sql_familyCode . $sql_admissionDate;
         //echo $sql;
         if ($result = mysqli_query($link, $sql)) {
@@ -63,8 +63,8 @@ if ($link === false) {
                 echo "</tr>";
                 while ($row = mysqli_fetch_array($result)) {
                     echo "<tr>";
-                    echo "<td>" . $row['id']  . "</td>";
-                    echo "<td>" . $row['first_name'] . $row['last_name']. "</td>";
+                    echo "<td>" . $row['patient_id']  . "</td>";
+                    echo "<td>" . $row['first_name'] . " " . $row['last_name']. "</td>";
                     $born = $row['dateOfBirth'];
                     $now = time();
                     $dob = strtotime($born);
@@ -75,7 +75,7 @@ if ($link === false) {
                     echo "<td>" . $row['family_code'] . "</td>";
                     echo "<td>" . $row['admission_date'] . "</td>";
                     echo "</tr>";
-                } 
+                }
 
                 echo "</table>";
             }else{
@@ -83,10 +83,10 @@ if ($link === false) {
                 echo "Invalid Inpute";
             }
         }else {
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link); 
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
     }elseif(isset($_POST['showall']) || !isset($_POST['showall']) ) {
-        $sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'patient';";
+        $sql = "SELECT a.*, r.*, p.* FROM accounts a, roles r, patients p WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.id = p.patient_id";
         $result = mysqli_query($link, $sql);
         $resultCheck = mysqli_num_rows($result);
         if ($resultCheck > 0) {
@@ -101,8 +101,8 @@ if ($link === false) {
             echo "</tr>";
             while ($row = mysqli_fetch_array($result)) {
                 echo "<tr background-color= '#4CAF50'>";
-                echo "<td>" . $row['id']  . "</td>";
-                echo "<td>" . $row['first_name'] . $row['last_name']. "</td>";
+                echo "<td>" . $row['patient_id']  . "</td>";
+                echo "<td>" . $row['first_name'] . " " . $row['last_name']. "</td>";
                 $born = $row['dateOfBirth'];
                 $now = time();
                 $dob = strtotime($born);
@@ -113,7 +113,7 @@ if ($link === false) {
                 echo "<td>" . $row['family_code'] . "</td>";
                 echo "<td>" . $row['admission_date'] . "</td>";
                 echo "</tr>";
-            
+
             }
             echo "</table>";
         }else {
