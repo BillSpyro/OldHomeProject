@@ -8,13 +8,18 @@ if ($_SESSION['access_level'] == 2){
       die("ERROR: Could not connect. " . mysqli_connect_error());
   }
 
+$id = $_SESSION['id'];
 $date = date("Y-m-d");
-$patient_group = $_SESSION['patient_group'];
-$sql = "SELECT c.id AS caregiverID, c.first_name AS caregiverFirstName, c.patient_group AS caregiverGroup, cr.role_id AS caregiverRole, p.id AS patientID, p.first_name AS patientFirstName, p.patient_group AS patientGroup, pr.role_id AS patientRole, r.roster_date FROM accounts c, accounts p, roles cr, roles pr, roster r WHERE p.role_id = pr.role_id and pr.access_level = 1 and c.role_id = cr.role_id and cr.access_level = 2 and c.patient_group = p.patient_group and c.patient_group = $patient_group and c.id = r.employee_id and r.roster_date = '$date'";
+$sql = "SELECT a.*, roster.* FROM accounts a, roster WHERE a.id = $id and a.id = roster.employee_id";
+$res = mysqli_query($link, $sql);
 
-//SELECT c.id AS caregiverID, c.first_name AS caregiverFirstName, c.patient_group AS caregiverGroup, cr.role_id AS caregiverRole, p.id AS patientID, p.first_name AS patientFirstName, p.patient_group AS patientGroup, pr.role_id AS patientRole, r.roster_date FROM accounts c, accounts p, roles cr, roles pr, roster r WHERE p.role_id = pr.role_id and pr.access_level = 1 and c.role_id = cr.role_id and cr.access_level = 2 and c.patient_group = p.patient_group and c.patient_group = 1 and c.id = r.employee_id and r.roster_date = '2020-11-05'
+if (mysqli_query($link, $sql)) {
+while ($row = mysqli_fetch_array($res)){
+  $patient_group  = $row['patient_group'];
+}
+$sql = "SELECT c.id AS caregiverID, c.first_name AS caregiverFirstName, r.patient_group AS caregiverGroup, cr.role_id AS caregiverRole, p.id AS patientID, p.first_name AS patientFirstName, pa.patient_group AS patientGroup, pr.role_id AS patientRole, r.roster_date FROM accounts c, accounts p, roles cr, roles pr, roster r, patients pa WHERE p.role_id = pr.role_id and pr.access_level = 1 and c.role_id = cr.role_id and cr.access_level = 2 and c.id = r.employee_id and p.id = pa.patient_id and r.patient_group = pa.patient_group and r.patient_group = $patient_group and c.id = r.employee_id and r.roster_date = '$date'";
 
-//SELECT c.id AS caregiverID, c.first_name AS caregiverFirstName, c.patient_group AS caregiverGroup, cr.role_id AS caregiverRole, p.id AS patientID, p.first_name AS patientFirstName, p.patient_group AS patientGroup, pr.role_id AS patientRole FROM accounts c, accounts p, roles cr, roles pr WHERE p.role_id = pr.role_id and pr.access_level = 1 and c.role_id = cr.role_id and cr.access_level = 2 and c.patient_group = p.patient_group and c.patient_group = 1
+//SELECT c.id AS caregiverID, c.first_name AS caregiverFirstName, r.patient_group AS caregiverGroup, cr.role_id AS caregiverRole, p.id AS patientID, p.first_name AS patientFirstName, pa.patient_group AS patientGroup, pr.role_id AS patientRole, r.roster_date FROM accounts c, accounts p, roles cr, roles pr, roster r, patients pa WHERE p.role_id = pr.role_id and pr.access_level = 1 and c.role_id = cr.role_id and cr.access_level = 2 and c.id = r.employee_id and p.id = pa.patient_id and r.patient_group = pa.patient_group and r.patient_group = 1 and c.id = r.employee_id and r.roster_date = '2020-11-17'
 
 $idArray = array();
 $nameArray = array();
@@ -31,7 +36,7 @@ if ($result = mysqli_query($link, $sql)) {
     }
 } else {
     $error = "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-}
+}}
 
 
 if (isset($_POST['caregiver'])) {
@@ -55,14 +60,10 @@ if (isset($_POST['caregiver'])) {
        if (is_numeric($current_value)){
          $first_name = $next_value;
 
-       }
-
-
-
-
+    }
+   }
   }
-}
-}
+ }
 }
 
 
