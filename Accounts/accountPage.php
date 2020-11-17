@@ -15,7 +15,7 @@ include "../Includes/header.php";
 <!--Greets the logged in user-->
    <div class="headr2">
      <ul class="admin">
-       
+
     <?php if ($_SESSION['access_level'] >= 4): ?>
       <li><a href="../Accounts/approvalPage.php">Registration Approval</a></li>
       <li><a href="../Accounts/additional_Patient_infoPage.php">Additional Patient Info</a></li>
@@ -57,12 +57,6 @@ include "../Includes/header.php";
     echo "<th>password</th>";
     echo "<th>phone</th>";
     echo "<th>dateOfBirth</th>";
-    echo "<th>family code</th>";
-    echo "<th>emergency contact</th>";
-    echo "<th>relation emergency</th>";
-    echo "<th>group</th>";
-    echo "<th>admission date</th>";
-    echo "<th>salary</th>";
 
     echo "</tr>";
     echo "<tr>";
@@ -75,12 +69,6 @@ include "../Includes/header.php";
     echo "<td>" . $_SESSION['password'] . "</td>";
     echo "<td>" . $_SESSION['phone']  . "</td>";
     echo "<td>" . $_SESSION['dathOfBirth']  . "</td>";
-    echo "<td>" . $_SESSION['family_code'] . "</td>";
-    echo "<td>" . $_SESSION['emergency_contact'] . "</td>";
-    echo "<td>" . $_SESSION['relation_emergency'] . "</td>";
-    echo "<td>" . $_SESSION['patient_group']  . "</td>";
-    echo "<td>" . $_SESSION['admission_date'] . "</td>";
-    echo "<td>" . $_SESSION['salary']. "</td>";
     echo "</tr>";
     echo "</table>";
 

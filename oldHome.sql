@@ -9,7 +9,6 @@ DROP TABLE IF EXISTS `roles`;
 DROP TABLE IF EXISTS `dailyCare`;
 DROP TABLE IF EXISTS `doctorAppointment`;
 DROP TABLE IF EXISTS `roster`;
-DROP TABLE IF EXISTS `due`;
 
 CREATE TABLE `accounts` (
   `id` serial UNIQUE NOT NULL,
@@ -33,6 +32,7 @@ CREATE TABLE `patients` (
   `relation_emergency` varchar(45) DEFAULT NULL,
   `patient_group` int(11) DEFAULT NULL,
   `admission_date` varchar(45) DEFAULT NULL,
+  `amount_due` varchar(45) DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
@@ -87,14 +87,6 @@ CREATE TABLE `roster` (
 `roster_date` varchar(45) NOT NULL,
 PRIMARY KEY (`roster_id`),
 UNIQUE KEY `id_UNIQUE` (`roster_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
-
-CREATE TABLE `due` (
-`due_id` serial UNIQUE NOT NULL,
-`patient_id` int(11) NOT NULL REFERENCES accounts(id),
-`amount_due` int(11) DEFAULT NULL,
-PRIMARY KEY (`due_id`),
-UNIQUE KEY `id_UNIQUE` (`due_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 INSERT INTO `roles` (role_name, access_level)

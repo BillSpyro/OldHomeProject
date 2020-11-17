@@ -31,12 +31,6 @@ if($count == 1) {
       $_SESSION['password'] = $row['password'];
       $_SESSION['phone'] = $row['phone'];
       $_SESSION['dathOfBirth'] = $row['dateOfBirth'];
-      $_SESSION['family_code'] = $row['family_code'];
-      $_SESSION['emergency_contact'] = $row['emergency_contact'];
-      $_SESSION['relation_emergency'] = $row['relation_emergency'];
-      $_SESSION['patient_group'] = $row['patient_group'];
-      $_SESSION['admission_date'] = $row['admission_date'];
-      $_SESSION['salary'] = $row['salary'];
     }
 
     $_SESSION['loggedin'] = true;

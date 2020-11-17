@@ -31,7 +31,7 @@ if (isset($_POST['additional_Patient_info'])) {
     $admission_date = $_POST["admission_date"];
     $p_id = $_SESSION['p_id'];
 // Attempt insert query execution
-$sql = "UPDATE accounts SET `patient_group` = '$group', `admission_date` = '$admission_date' WHERE id = $p_id";
+$sql = "UPDATE patients SET `patient_group` = '$group', `admission_date` = '$admission_date' WHERE patient_id = $p_id";
 $result = mysqli_query($link, $sql);
 if (mysqli_query($link, $sql)) {
     echo "Records added successfully.";

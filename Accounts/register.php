@@ -31,12 +31,19 @@ if (isset($_POST['registerPatient'])) {
   }
 
   // Attempt insert query execution
-  $sql = "INSERT INTO accounts (role_id, first_name, last_name, email, password, phone, dateOfBirth, family_code, emergency_contact, relation_emergency) VALUES ('$role_id', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth', '$family_code', '$emergency_contact', '$relation_emergency')";
-  session_unset();
-  session_destroy();
+  $sql = "INSERT INTO accounts (role_id, first_name, last_name, email, password, phone, dateOfBirth) VALUES ('$role_id', '$first_name', '$last_name', '$email', '$password', '$phone', '$dateOfBirth')";
   if (mysqli_query($link, $sql)) {
-      echo "Records added successfully.";
+    $sql = "SELECT accounts.id FROM accounts WHERE email = '$email' and password = '$password'";
+    $res = mysqli_query($link, $sql);
+    while ($row = mysqli_fetch_array($res)){
+      $id = $row['id'];
+    }
+    $sql = "INSERT INTO patients (patient_id, family_code, emergency_contact, relation_emergency) VALUES ('$id', '$family_code', '$emergency_contact', '$relation_emergency')";
+    session_unset();
+    session_destroy();
+    if (mysqli_query($link, $sql)) {
       header("Location:loginPage.php");
+    }
   } else {
       echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
   }

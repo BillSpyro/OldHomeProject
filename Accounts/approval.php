@@ -67,8 +67,11 @@ $list = $_POST['list'];
          if (mysqli_query($link, $sql)) {
          while ($row = mysqli_fetch_array($res)){
            $email = $row['email'];
+           $id = $row['id'];
          }
          $sql = "DELETE FROM accounts WHERE first_name='$first_name' and email = '$email'";
+         $res = mysqli_query($link, $sql);
+         $sql = "DELETE FROM patients WHERE patient_id = $id";
          $res = mysqli_query($link, $sql);
        }else {
          echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
