@@ -42,7 +42,6 @@ if (isset($_POST['caregiver'])) {
 
   $checkID = 0;
 
-  echo "You chose the following: <br>";
   if(!empty($list)){
   foreach ($list as $name){
     $checkArray = explode('-', $name);
