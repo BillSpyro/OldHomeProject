@@ -7,6 +7,7 @@ if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
     }
 
+    //Displays patients based on search
     if (isset($_POST['patient_info_search'])) {
 
         $id = $_POST['id'];
@@ -85,6 +86,7 @@ if ($link === false) {
         }else {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
+        //Displays all patients
     }elseif(isset($_POST['showall']) || !isset($_POST['showall']) ) {
         $sql = "SELECT a.*, r.*, p.* FROM accounts a, roles r, patients p WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.id = p.patient_id";
         $result = mysqli_query($link, $sql);

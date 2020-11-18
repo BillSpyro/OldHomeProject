@@ -13,6 +13,7 @@ $sql = "SELECT * FROM roles";
 $roleArray = array();
 $accessLevelArray = array();
 
+//Reads all existing roles
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
@@ -28,7 +29,7 @@ if ($result = mysqli_query($link, $sql)) {
 }
 
 
-//Runs operation when Ok is selected
+//Attempts to add new role when Ok is selected
 if (isset($_POST['role'])) {
 $role_name = $_POST['new_role'];
 $access_level = $_POST['access_level'];

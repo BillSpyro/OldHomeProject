@@ -16,7 +16,7 @@ if (isset($_POST['drAppointment_search'])) {
     $result = mysqli_query($link, $sql);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)){
-            
+
             $patient_id = $row['patient_id'];
             $first_name = $row['first_name'];
             $last_name = $row['last_name'];

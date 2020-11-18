@@ -6,6 +6,8 @@ $link = mysqli_connect("localhost", "root", "","oldHome");
 if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
+
+// Search for patient
 if (isset($_POST['additional_Patient_info_search'])) {
     $id = $_POST['id'];
     $sql = "SELECT * FROM accounts WHERE id='$id'";
@@ -30,7 +32,7 @@ if (isset($_POST['additional_Patient_info'])) {
     $group = $_POST["group"];
     $admission_date = $_POST["admission_date"];
     $p_id = $_SESSION['p_id'];
-// Attempt insert query execution
+// Set patient to a group
 $sql = "UPDATE patients SET `patient_group` = '$group', `admission_date` = '$admission_date' WHERE patient_id = $p_id";
 $result = mysqli_query($link, $sql);
 if (mysqli_query($link, $sql)) {
