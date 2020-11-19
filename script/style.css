@@ -291,11 +291,25 @@ div.patient-info form {
 }
 .column th {
     background-color: #4CAF50;
-  color: white;
+    color: white;
 }
 tr.cell :nth-child(even){background-color: #f2f2f2}
 
 .Dr_appointment input {
     display: inline-block;
     width: 140px;
+}
+.appointment_list {
+    position: absolute;
+    right: 5%;
+    top: 20%;
+}
+
+.docotr-home form {
+    text-align: left;
+}
+.docotr-home {
+    padding-left: 2rem;
+    background-color: thistle;
+    width: auto;
 }

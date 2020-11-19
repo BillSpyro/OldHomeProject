@@ -35,6 +35,9 @@ include "../Includes/header.php";
       <?php if ($_SESSION['access_level'] == 2): ?>
       <li><a href="../views/caregiverPage.php">Caregiver Home</a></li>
       <?php endif ?>
+      <?php if ($_SESSION['access_level'] == 3): ?>
+      <li><a href="../doctor/doctor_home_page.php">Docotr Appointment</a></li>
+      <?php endif ?>
 
       <li><a href="../Roster/rosterPage.php">Roster</a></li>
     </ul>
