@@ -8,6 +8,7 @@ if ($_SESSION['access_level'] >= 4){
       die("ERROR: Could not connect. " . mysqli_connect_error());
   }
 
+//Selects all employees and displays them
 $sql = "SELECT a.*, r.*, e.* FROM accounts a, roles r, employees e WHERE r.role_id = a.role_id and r.access_level >= 2 and a.id = e.employee_id";
 
 $idArray = array();
@@ -31,6 +32,7 @@ if ($result = mysqli_query($link, $sql)) {
     $error = "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 
+//Displays all employees if you selected Search All
 if (isset($_POST['searchall'])) {
   $sql = "SELECT a.*, r.*, e.* FROM accounts a, roles r, employees e WHERE r.role_id = a.role_id and r.access_level >= 2 and a.id = e.employee_id";
 
@@ -57,7 +59,7 @@ if (isset($_POST['searchall'])) {
 }
 
 
-//Runs operation when Ok is selected
+//Displays only certain employees when searched
 if (isset($_POST['search'])) {
 $id = $_POST['id'];
 $name = $_POST['name'];
@@ -110,6 +112,7 @@ if ($result = mysqli_query($link, $sql)) {
 }
 }
 
+//Only admin can update an employees salary
 if ($_SESSION['access_level'] >= 5){
 if (isset($_POST['update'])) {
   $id = $_POST['id'];

@@ -11,6 +11,7 @@ if ($link === false) {
 
         $roster_date = $_POST['roster_date'];
 
+        //Reads employees from the roster on the day
         $sql_base = "SELECT a.first_name, roles.*, roster.* FROM accounts a, roles, roster WHERE a.role_id = roles.role_id and a.id = roster.employee_id";
         $supervisor_name = "SELECT a.first_name, roles.* FROM accounts a, roles WHERE a.role_id = roles.role_id and role_name = 'Supervisor';";
         $doctor_name = "SELECT a.first_name, roles.* FROM accounts a, roles WHERE a.role_id = roles.role_id and role_name = 'Doctor';";
@@ -25,7 +26,7 @@ if ($link === false) {
           }
 
         $sql = $sql_base . $sql_date;
-        //echo $sql;
+        //Displays the roster for the date
         if ($result = mysqli_query($link, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 echo "<table>";

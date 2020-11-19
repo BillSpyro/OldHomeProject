@@ -21,6 +21,7 @@ $count = mysqli_num_rows($result);
 if($count == 1) {
   if (mysqli_query($link, $sql)) {
     session_start();
+    //Sets the session variables
     while ($row = mysqli_fetch_array($result)){
       $_SESSION['id'] = $row['id'];
       $_SESSION['role_id'] = $row['role_id'];

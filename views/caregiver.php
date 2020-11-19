@@ -8,6 +8,7 @@ if ($_SESSION['access_level'] == 2){
       die("ERROR: Could not connect. " . mysqli_connect_error());
   }
 
+//Displays only the caregiver's group of patients for today
 $id = $_SESSION['id'];
 $date = date("Y-m-d");
 $sql = "SELECT a.*, roster.* FROM accounts a, roster WHERE a.id = $id and a.id = roster.employee_id";
@@ -36,7 +37,7 @@ if ($result = mysqli_query($link, $sql)) {
     $error = "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }}
 
-
+//Inserts into dailyCare table based on the values of the checkboxes
 if (isset($_POST['caregiver'])) {
   $list = $_POST['list'];
 

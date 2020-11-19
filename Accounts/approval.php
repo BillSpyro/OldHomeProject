@@ -42,8 +42,8 @@ $list = $_POST['list'];
 
             $next_key = next($keys);
             $next_value = $approveArray[$next_key] ?? null;
-            //echo  "{$value}: current = ({$current_key} => {$current_value}); next = ({$next_key} => {$next_value})\n";
 
+            //Checks if yes radial was selected and updates the account to be approved
             if ($current_value == "Yes"){
               $first_name = $next_value;
               $sql = "SELECT * FROM accounts WHERE first_name='$first_name' and approved = FALSE";
@@ -59,6 +59,7 @@ $list = $_POST['list'];
               echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 
             }
+        //Checks if no radial was selected and deletes account
        } elseif ($current_value == "No"){
          $first_name = $next_value;
          $sql = "SELECT * FROM accounts WHERE first_name='$first_name' and approved = FALSE";

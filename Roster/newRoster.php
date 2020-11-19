@@ -7,6 +7,7 @@ if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
+//Displays all available employees
 $sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Supervisor'";
 $supervisorResult = mysqli_query($link,$sql);
 
@@ -25,7 +26,7 @@ $caregiver3Result = mysqli_query($link,$sql);
 $sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Caregiver'";
 $caregiver4Result = mysqli_query($link,$sql);
 
-
+//Adds the selected employees to the roster
 if (isset($_POST['newRoster'])) {
   $date = $_POST['date'];
   $supervisor = $_POST['supervisor'];
