@@ -7,10 +7,12 @@ if ($link === false) {
 }
 
 $doctor_id = $_SESSION['id'];
+if ($_GET['id']){
 $_SESSION['patient_id'] = $_GET['id'];
 $patient_id = $_SESSION['patient_id'];
+}
 
-$sql = "SELECT a.*, r.*, d.* FROM accounts a, roles r, doctorAppointment d WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.id = d.patient_id and a.id ='$patient_id' and d.doctor_id = '$doctor_id'";
+$sql = "SELECT a.*, r.*, d.* FROM accounts a, roles r, doctorAppointment d WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.id = d.patient_id and a.id = '$patient_id' and d.doctor_id = '$doctor_id'";
 
 $dateArray = array();
 $commentArray = array();
