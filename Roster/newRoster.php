@@ -118,6 +118,16 @@ if($count > 0) {
   $sql = "INSERT INTO roster (employee_id, roster_date, patient_group) VALUES ('$caregiver4', '$date', 4)";
   $result = mysqli_query($link,$sql);
 }
+
+$sql = "SELECT p.id, r.access_level FROM accounts p, roles r WHERE p.role_id = r.role_id and r.access_level = 1";
+$result = mysqli_query($link,$sql);
+if (mysqli_query($link, $sql)) {
+while ($row = mysqli_fetch_array($result)){
+  $patient_id  = $row['id'];
+  $sql = "INSERT INTO dailyCare (patient_id, dailyCare_date) VALUES ('$patient_id', '$date')";
+  $res = mysqli_query($link,$sql);
+}
+}
 }
 // Close connection
 mysqli_close($link);

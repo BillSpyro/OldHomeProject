@@ -58,7 +58,7 @@ if (isset($_POST['caregiver'])) {
          $activity = $next_value;
          if ($current_value != $checkID){
            if ($checkID != 0){
-           $sql = "INSERT INTO dailyCare (patient_id, dailyCare_date, breakfast, lunch, dinner, morning_med, afternoon_med, night_med) VALUES ('$checkID', '$date', '$breakfast', '$lunch', '$dinner', '$morning_med', '$afternoon_med', '$night_med')";
+           $sql = "UPDATE dailyCare SET breakfast = '$breakfast', lunch = '$lunch', dinner = '$dinner', morning_med = '$morning_med', afternoon_med = '$afternoon_med', night_med = '$night_med' WHERE patient_id = '$checkID' and dailyCare_date = '$date'";
            $res = mysqli_query($link, $sql);
           }
            $breakfast = 0;
@@ -91,7 +91,7 @@ if (isset($_POST['caregiver'])) {
     }
    }
   }
-  $sql = "INSERT INTO dailyCare (patient_id, dailyCare_date, breakfast, lunch, dinner, morning_med, afternoon_med, night_med) VALUES ('$checkID', '$date', '$breakfast', '$lunch', '$dinner', '$morning_med', '$afternoon_med', '$night_med')";
+  $sql = "UPDATE dailyCare SET breakfast = '$breakfast', lunch = '$lunch', dinner = '$dinner', morning_med = '$morning_med', afternoon_med = '$afternoon_med', night_med = '$night_med' WHERE patient_id = '$checkID' and dailyCare_date = '$date'";
   $res = mysqli_query($link, $sql);
  }
 }
