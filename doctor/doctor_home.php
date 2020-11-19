@@ -15,9 +15,10 @@ if ($link === false) {
         $morning_med = $_POST['morning_med'];
         $afternoon_med = $_POST['afternoon_med'];
         $night_med = $_POST['night_med'];
+        $doctor_id = $_SESSION['id'];
         //$sql = "SELECT * FROM accounts WHERE id LIKE '$id%' and first_name LIKE '$first_name%' and dateOfBirth LIKE '$dateOfBirth%' and  emergency_contact LIKE '$emergency_contact%' and family_code LIKE '$family_code%';";
-        $sql_base = "SELECT a.*, r.*, d.* FROM accounts a, roles r, doctorAppointment d WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.id = d.patient_id";
-        
+        $sql_base = "SELECT a.*, r.*, d.* FROM accounts a, roles r, doctorAppointment d WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.id = d.patient_id and d.doctor_id ='$doctor_id'";
+
         if (empty($first_name)){
             $sql_firstName = " and a.first_name LIKE '$first_name%'";
           }else {
@@ -64,7 +65,7 @@ if ($link === false) {
                 echo "</tr>";
                 while ($row = mysqli_fetch_array($result)) {
                     echo "<tr>";
-                    
+
                     echo "<td>" . $row['first_name'] . " " . $row['last_name']. "</td>";
                     echo "<td>" . $row['appointment_date'] . "</td>";
                     echo "<td>" . $row['comment'] . "</td>";
@@ -83,7 +84,8 @@ if ($link === false) {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
     }elseif(isset($_POST['showall']) || !isset($_POST['showall']) ) {
-        $sql = "SELECT a.*, r.*, d.* FROM accounts a, roles r, doctorAppointment d WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.id = d.patient_id";
+        $doctor_id = $_SESSION['id'];
+        $sql = "SELECT a.*, r.*, d.* FROM accounts a, roles r, doctorAppointment d WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.id = d.patient_id and d.doctor_id='$doctor_id'";
         $result = mysqli_query($link, $sql);
         $resultCheck = mysqli_num_rows($result);
         if ($resultCheck > 0) {
@@ -99,7 +101,7 @@ if ($link === false) {
             echo "</tr>";
             while ($row = mysqli_fetch_array($result)) {
                 echo "<tr>";
-                    
+
                     echo "<td>" . $row['first_name'] . " " . $row['last_name']. "</td>";
                     echo "<td>" . $row['appointment_date'] . "</td>";
                     echo "<td>" . $row['comment'] . "</td>";
