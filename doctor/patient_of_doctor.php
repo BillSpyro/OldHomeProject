@@ -14,6 +14,7 @@ $patient_id = $_SESSION['patient_id'];
 
 $sql = "SELECT a.*, r.*, d.* FROM accounts a, roles r, doctorAppointment d WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.id = d.patient_id and a.id = '$patient_id' and d.doctor_id = '$doctor_id'";
 
+$now = date("Y-m-d");
 $dateArray = array();
 $commentArray = array();
 $morningMedArray = array();
@@ -37,7 +38,7 @@ if ($result = mysqli_query($link, $sql)) {
     $error = "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 
-if (isset($_POST['new_prescription'])) {
+if (isset($_POST['new_prescription']) ) {
 
   $comment = $_POST['comment'];
   $morning_med = $_POST['morning_med'];
