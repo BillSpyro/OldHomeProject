@@ -32,7 +32,7 @@ include "../Includes/header.php";
         <input class="save" name="showall" type="submit" value="Show all">
 
     </form>
- 
+
     <!-- patients name, date, comment and medicine time  View page for doctor -->
     <div class="docotrs_home--result">
         <h1>result</h1>
@@ -50,15 +50,16 @@ include "../Includes/header.php";
 
     </form>
 
-<?php 
-// appointment lists from now to specific date 
+<?php
+// appointment lists from now to specific date
 if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 if (isset($_POST['search_appointment_list'])) {
     $appointment_date = $_POST['appointment_date'];
     $now = date("Y-m-d");
-    $sql = "SELECT a.*, d.* FROM accounts a, doctorAppointment d WHERE d.patient_id = a.id  and appointment_date BETWEEN '$now' and '$appointment_date';";
+    $doctor_id = $_SESSION['id'];
+    $sql = "SELECT a.*, d.* FROM accounts a, doctorAppointment d WHERE d.patient_id = a.id  and appointment_date BETWEEN '$now' and '$appointment_date' and d.doctor_id ='$doctor_id';";
 
 
     $result = mysqli_query($link, $sql);
@@ -67,12 +68,13 @@ if (isset($_POST['search_appointment_list'])) {
         echo "<table>";
         echo "<tr>";
         echo "<th>Name</th>";
-        echo "<th>Date</th>";  
+        echo "<th>Date</th>";
         echo "</tr>" ;
         while ($row = mysqli_fetch_array($result)){
             echo "<tr>" ;
-            echo "<td>" . $row['first_name'] . " " . $row['last_name']. "</td>";
+            echo "<td>" . $row['first_name'] . " " . $row['last_name'].  "</td>";
             echo "<td>" . $row['appointment_date'] . "</td>";
+            echo "<td> <a href=patient_of_doctor_page.php?id=" . $row['id'] . ">Edit</a> </td>";
             echo "</tr>";
   }
   echo "<table>";

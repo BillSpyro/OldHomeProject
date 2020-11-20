@@ -21,7 +21,7 @@ include "../Includes/header.php";
       <li><a href="../Accounts/additional_Patient_infoPage.php">Additional Patient Info</a></li>
       <li><a href="../views/employeePage.php">Employee</a></li>
       <li><a href="../Roster/newRosterPage.php">New Roster</a></li>
-      <li><a href="doctorsAppointmentPage.php">Doctor Appointment</a></li>
+      <li><a href="../doctor/doctorsAppointmentPage.php">Doctor Appointment</a></li>
       <?php endif ?>
 
       <?php if ($_SESSION['access_level'] >= 5): ?>

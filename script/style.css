@@ -311,5 +311,5 @@ tr.cell :nth-child(even){background-color: #f2f2f2}
 .docotr-home {
     padding-left: 2rem;
     background-color: thistle;
-    width: auto;
+    background-size: auto;
 }
