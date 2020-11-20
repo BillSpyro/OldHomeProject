@@ -11,8 +11,12 @@ if ($_GET['id']){
 $_SESSION['patient_id'] = $_GET['id'];
 $patient_id = $_SESSION['patient_id'];
 }
+if ($_GET['date']){
+$_SESSION['appointment_date'] = $_GET['date'];
+$appointment_date = $_SESSION['appointment_date'];
+}
 
-$sql = "SELECT a.*, r.*, d.* FROM accounts a, roles r, doctorAppointment d WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.id = d.patient_id and a.id = '$patient_id' and d.doctor_id = '$doctor_id'";
+$sql = "SELECT a.*, r.*, d.* FROM accounts a, roles r, doctorAppointment d WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.id = d.patient_id and a.id = '$patient_id' and d.doctor_id = '$doctor_id' and appointment_date <= '$appointment_date'";
 
 $now = date("Y-m-d");
 $dateArray = array();
@@ -46,11 +50,12 @@ if (isset($_POST['new_prescription']) ) {
   $night_med = $_POST['night_med'];
   $date = date("Y-m-d");
   $patient_id = $_SESSION['patient_id'];
+  $appointment_date = $_SESSION['appointment_date'];
 
   $sql = "UPDATE doctorAppointment SET comment = '$comment', morning_med = '$morning_med', afternoon_med = '$afternoon_med', night_med = '$night_med' WHERE appointment_date = '$date' and patient_id = '$patient_id' and doctor_id = '$doctor_id'";
   $result = mysqli_query($link, $sql);
 
-  header("Location:patient_of_doctor_page.php?id=" . $patient_id);
+  header("Location:patient_of_doctor_page.php?id=" . $patient_id . "&date=" . $appointment_date);
 
 }
 

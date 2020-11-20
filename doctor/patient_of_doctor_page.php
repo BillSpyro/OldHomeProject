@@ -41,9 +41,8 @@ include "patient_of_doctor.php";
 <?php endfor ?>
 </table>
 <!-- show up this form if the day today -->
-<?php  echo $date;?>
 <?php  if ($date == $now):?>
- 
+
 <h2>New Prescription</h2>
 
 <form class="new_prescription" action="patient_of_doctor_page.php" method="post">

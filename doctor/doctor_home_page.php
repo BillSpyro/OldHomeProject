@@ -74,7 +74,7 @@ if (isset($_POST['search_appointment_list'])) {
             echo "<tr>" ;
             echo "<td>" . $row['first_name'] . " " . $row['last_name'].  "</td>";
             echo "<td>" . $row['appointment_date'] . "</td>";
-            echo "<td> <a href=patient_of_doctor_page.php?id=" . $row['id'] . ">Edit</a> </td>";
+            echo "<td> <a href=patient_of_doctor_page.php?id=" . $row['id'] . "&date=" . $row['appointment_date'] . ">Edit</a> </td>";
             echo "</tr>";
   }
   echo "<table>";
