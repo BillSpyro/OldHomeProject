@@ -11,7 +11,7 @@ if ($_SESSION['access_level'] == 2){
 //Displays only the caregiver's group of patients for today
 $id = $_SESSION['id'];
 $date = date("Y-m-d");
-$sql = "SELECT a.*, roster.* FROM accounts a, roster WHERE a.id = $id and a.id = roster.employee_id";
+$sql = "SELECT a.*, roster.* FROM accounts a, roster WHERE a.id = $id and a.id = roster.employee_id and roster_date = '$date'";
 $res = mysqli_query($link, $sql);
 
 if (mysqli_query($link, $sql)) {
