@@ -40,8 +40,13 @@ include "../Includes/header.php";
       <?php endif ?>
 
       <li><a href="../Roster/rosterPage.php">Roster</a></li>
+
       <?php if ($_SESSION['access_level'] == 0): ?>
       <li><a href="../views/family_page.php">family Page</a></li>
+      <?php endif ?>
+
+      <?php if ($_SESSION['access_level'] == 1): ?>
+      <li><a href="../views/patientHomePage.php">Patient's Home</a></li>
       <?php endif ?>
     </ul>
   </div>
