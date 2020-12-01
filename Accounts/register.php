@@ -80,6 +80,7 @@ if (mysqli_num_rows($res) > 0){
     header("Location:registerPatient.php");
   } else {
 
+echo $role;
   $sql = "SELECT * FROM roles WHERE role_name = '$role'";
   $res = mysqli_query($link, $sql);
   while ($row = mysqli_fetch_array($res)){

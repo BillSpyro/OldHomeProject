@@ -1,5 +1,7 @@
 <?php
 
+if ($_SESSION['access_level'] == 0){
+
 $link = mysqli_connect("localhost", "root", "","oldHome");
 
 // Check connection
@@ -13,14 +15,14 @@ if ($link === false) {
         $dailyCare_date = $_POST['dailyCare_date'];
         $family_code = $_POST['family_code'];
         $patient_id = $_POST['patient_id'];
-        
+
         $sql = "SELECT di.*,  p.* FROM dailyCare di,  patients p WHERE p.patient_id = di.patient_id and di.dailyCare_date = '$dailyCare_date' and p.family_code = '$family_code' and p.patient_id = '$patient_id';";
-        
+
         if ($result = mysqli_query($link, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 echo "<table border='1px black solid'>";
                 echo "<tr>";
-                
+
                 echo "<th>Morning Medcine</th>";
                 echo "<th>AfterNoon Medcine</th>";
                 echo "<th>Night Medicne</th>";
@@ -33,7 +35,7 @@ if ($link === false) {
                 echo "</tr>";
                 while ($row = mysqli_fetch_array($result)) {
                     echo "<tr>";
-                    
+
                     $ans = $row['morning_med'];
                     if ($ans == 1){
                         echo "<td>" ."✓". "</td>";
@@ -69,7 +71,7 @@ if ($link === false) {
                     }else {
                         echo "<td>" ."X". "</td>";
                     }
-                    
+
                     $ans = $row['dinner'];
                     if ($ans == 1){
                         echo "<td>" ."✓". "</td>";
@@ -93,25 +95,26 @@ if ($link === false) {
                             echo "<td>" . $row['first_name'] . "</td>";
                         }
                     }
-                    $appo_date = "SELECT doctorAppointment.appointment_date FROM doctorAppointment   WHERE doctorAppointment.patient_id = '$patient_id';";
-                
+                    $appo_date = "SELECT doctorAppointment.appointment_date FROM doctorAppointment   WHERE doctorAppointment.patient_id = '$patient_id' and doctorAppointment.appointment_date = '$dailyCare_date';";
+
                     $result = mysqli_query($link, $appo_date);
                     if (mysqli_num_rows($result) >0) {
                         while ($row = mysqli_fetch_array($result)) {
-                            
+
                             $ans = $row['appointment_date'];
-                       
+
                             if ($ans != $dailyCare_date) {
                                 echo "<td>" ."X". "</td>";
-                                echo $row['appointment_date'];
 
                             }else  {
                                 echo "<td>" ."✓". "</td>";
                             }
-                            
+
                         }
-                    }
-                    
+                    } else  {
+                        echo "<td>" ."X". "</td>";
+                      }
+
                 }
 
                 echo "</table>";
@@ -122,5 +125,9 @@ if ($link === false) {
         }else {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
+    }
+    mysqli_close($link);
+    } else {
+      header("location:accountPage.php");
     }
 ?>

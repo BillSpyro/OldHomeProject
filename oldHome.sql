@@ -95,7 +95,7 @@ VALUES ('Admin', 5),
 ('Doctor', 3),
 ('Caregiver', 2),
 ('Patient', 1),
-('Family Member', 0);
+('FamilyMember', 0);
 
 INSERT INTO `accounts` (role_id, first_name, last_name, email, password, phone, dateOfBirth, approved)
 VALUES (1, 'Charles', 'Crandall', 'admin@gmail.com', '12345', '717-381-1131', '07-27-2000', TRUE),
