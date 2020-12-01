@@ -40,6 +40,7 @@ include "../Includes/header.php";
       <?php endif ?>
 
       <li><a href="../Roster/rosterPage.php">Roster</a></li>
+      <li><a href="../views/family_page.php">family Page</a></li>
     </ul>
   </div>
     <h1>Hello<?php
