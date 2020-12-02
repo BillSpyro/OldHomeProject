@@ -12,7 +12,7 @@ if ($link === false) {
 if (isset($_POST['miss_activity_search'])) {
     $date = $_POST['date'];
     $now = date("Y-m-d");
-    $patient_name = "SELECT a.first_name, roles.*, di.* FROM accounts a, dailyCare di, roles WHERE a.role_id = roles.role_id and role_name = 'Patient' and a.id = di.patient_id and di.dailyCare_date = '$date';";
+    $patient_name = "SELECT a.first_name, p.patient_group, roles.*, di.* FROM accounts a, dailyCare di, roles, patients p WHERE a.role_id = roles.role_id and role_name = 'Patient' and a.id = di.patient_id and a.id = p.patient_id and di.dailyCare_date = '$date';";
 
 
         if ($result = mysqli_query($link, $patient_name)) {
@@ -26,7 +26,7 @@ if (isset($_POST['miss_activity_search'])) {
                 echo "<th>Breakfast</th>";
                 echo "<th>Lunch</th>";
                 echo "<th>Dinner</th>";
-                
+
                 echo "<th>Doctor Name</th>";
                 echo "<th>Care giver  Name</th>";
                 echo "<th>doctor appointment</th>";
@@ -34,7 +34,7 @@ if (isset($_POST['miss_activity_search'])) {
                 while ($row = mysqli_fetch_array($result)) {
                     echo "<tr>";
                     echo "<td>" . $row['first_name'] .  "</td>";
-                    
+
                     $ans = $row['morning_med'];
                     if ($ans == 1){
                         echo "<td>" ."✓". "</td>";
@@ -78,30 +78,31 @@ if (isset($_POST['miss_activity_search'])) {
                     }else {
                         echo "<td>" ."X". "</td>";
                     }
+                    $group = $row['patient_group'];
+                    $patient_id = $row['patient_id'];
                     $doctor_name = "SELECT a.first_name, roles.*, roster.* FROM accounts a, roles, roster WHERE a.role_id = roles.role_id and role_name = 'Doctor' and a.id = roster.employee_id and roster.roster_date = '$date';";
 
-                    $result = mysqli_query($link, $doctor_name);
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_array($result)) {
+                    $result1 = mysqli_query($link, $doctor_name);
+                    if (mysqli_num_rows($result1) > 0) {
+                        while ($row = mysqli_fetch_array($result1)) {
                             echo "<td>" . $row['first_name'] . "</td>";
                         }
                     }
-                    $cargiver_name1 = "SELECT a.first_name, roles.*, roster.* FROM accounts a, roles, roster WHERE a.role_id = roles.role_id and role_name = 'Caregiver' and a.id = roster.employee_id and roster.patient_group = 1 and roster.roster_date = '$date';";
-                    $result = mysqli_query($link, $cargiver_name1);
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_array($result)) {
+                    $cargiver_name1 = "SELECT a.first_name, roles.*, roster.* FROM accounts a, roles, roster WHERE a.role_id = roles.role_id and role_name = 'Caregiver' and a.id = roster.employee_id and roster.patient_group = '$group' and roster.roster_date = '$date';";
+                    $result2 = mysqli_query($link, $cargiver_name1);
+                    if (mysqli_num_rows($result2) > 0) {
+                        while ($row = mysqli_fetch_array($result2)) {
                             echo "<td>" . $row['first_name'] . "</td>";
                         }
                     }
-                    $appo_date = "SELECT doctorAppointment.appointment_date FROM doctorAppointment   WHERE doctorAppointment.appointment_date = '$date';";
-
-                    $result = mysqli_query($link, $appo_date);
-                    if (mysqli_num_rows($result) >0) {
-                        while ($row = mysqli_fetch_array($result)) {
+                    $appo_date = "SELECT doctorAppointment.appointment_date, a.id FROM doctorAppointment, accounts a WHERE doctorAppointment.appointment_date = '$date' and a.id = '$patient_id' and doctorAppointment.patient_id = a.id;";
+                    $result3 = mysqli_query($link, $appo_date);
+                    if (mysqli_num_rows($result3) >0) {
+                        while ($row = mysqli_fetch_array($result3)) {
 
                             $ans = $row['appointment_date'];
 
-                            if ($ans != $dailyCare_date) {
+                            if ($ans != $date) {
                                 echo "<td>" ."X". "</td>";
 
                             }else  {
@@ -113,8 +114,8 @@ if (isset($_POST['miss_activity_search'])) {
                         echo "<td>" ."X". "</td>";
                       }
 
-                
-                    
+
+
                 }
 
                 echo "</table>";
@@ -126,5 +127,5 @@ if (isset($_POST['miss_activity_search'])) {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
     }
-    
+
 ?>
