@@ -22,6 +22,7 @@ include "../Includes/header.php";
       <li><a href="../views/employeePage.php">Employee</a></li>
       <li><a href="../Roster/newRosterPage.php">New Roster</a></li>
       <li><a href="../doctor/doctorsAppointmentPage.php">Doctor Appointment</a></li>
+      <li><a href="../views/admin_report_page.php">Admin Report</a></li>
       <?php endif ?>
 
       <?php if ($_SESSION['access_level'] >= 5): ?>
