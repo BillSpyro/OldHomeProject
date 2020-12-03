@@ -52,9 +52,33 @@ if (isset($_POST['new_prescription']) ) {
   $patient_id = $_SESSION['patient_id'];
   $appointment_date = $_SESSION['appointment_date'];
 
-  $sql = "UPDATE doctorAppointment SET comment = '$comment', morning_med = '$morning_med', afternoon_med = '$afternoon_med', night_med = '$night_med' WHERE appointment_date = '$date' and patient_id = '$patient_id' and doctor_id = '$doctor_id'";
+  if (empty($morning_med)){
+    $morning_med = 'NULL';
+    $sqlmorning_med = "morning_med = $morning_med,";
+  } else {
+    $sqlmorning_med = "morning_med = '$morning_med',";
+  }
+  if (empty($afternoon_med)){
+    $afternoon_med = 'NULL';
+    $sqlafternoon_med = "afternoon_med = $afternoon_med,";
+  } else {
+    $sqlafternoon_med = "afternoon_med = '$afternoon_med',";
+  }
+  if (empty($night_med)){
+    $night_med = 'NULL';
+    $sqlnight_med = "night_med = $night_med";
+  } else {
+    $sqlnight_med = "night_med = '$night_med'";
+  }
+
+  $sqlBase = "UPDATE doctorAppointment SET comment = '$comment',";
+  $sqlEnd = "WHERE appointment_date = '$date' and patient_id = '$patient_id' and doctor_id = '$doctor_id'";
+
+  //$sql = "UPDATE doctorAppointment SET comment = '$comment', morning_med = '$morning_med', afternoon_med = '$afternoon_med', night_med = '$night_med' WHERE appointment_date = '$date' and patient_id = '$patient_id' and doctor_id = '$doctor_id'";
+  $sql = $sqlBase . " " . $sqlmorning_med . " " . $sqlafternoon_med . " " . $sqlnight_med . " " . $sqlEnd;
   $result = mysqli_query($link, $sql);
 
+  echo $sql;
   header("Location:patient_of_doctor_page.php?id=" . $patient_id . "&date=" . $appointment_date);
 
 }

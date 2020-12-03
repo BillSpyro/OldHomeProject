@@ -67,9 +67,13 @@ while ($row = mysqli_fetch_array($res)){
   $totalMedicine = $row['sum'];
 }
 }
+$months = $totalDays / 30;
+if ($months < 1){
+  $months = 1;
+}
+$totalMedicineDue = $totalMedicine * 5 * intval($months);
 
-$totalMedicineDue= $totalMedcine * 5;
-
+//Total amount calculated
 $totalDue = $totalDayDue + $totalAppointmentDue + $totalMedicineDue;
 
 $sql = "UPDATE patients SET amount_due = '$totalDue' WHERE patient_id = '$patient_id'";
