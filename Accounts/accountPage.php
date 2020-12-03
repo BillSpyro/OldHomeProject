@@ -27,6 +27,7 @@ include "../Includes/header.php";
 
       <?php if ($_SESSION['access_level'] >= 5): ?>
       <li><a href="../Roles/rolePage.php">Roles</a></li>
+      <li><a href="../admin/paymentPage.php">Payment</a></li>
       <?php endif ?>
 
       <?php if ($_SESSION['access_level'] >=2): ?>
