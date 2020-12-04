@@ -11,8 +11,9 @@ $amount_due = 0;
 $new_payment = 0;
 
 // Escape user inputs for security
-if (isset($_POST['newPayment'])) {
+if (isset($_POST['Payment'])) {
   $patient_id = $_POST['patient_id'];
+  $newPayment = $_POST['newPayment'];
   $now = date("Y-m-d");
 
   $sql = "SELECT p.amount_due FROM accounts a, patients p WHERE a.id = '$patient_id' and p.patient_id = a.id";
@@ -24,11 +25,27 @@ if (isset($_POST['newPayment'])) {
   }
   }
 
+  if (empty($newPayment)){
+    $newPayment = 0;
+  }
+
+  $amount_due = $amount_due - $newPayment;
+
+  $sql = "UPDATE patients SET amount_due = '$amount_due' WHERE patient_id = '$patient_id'";
+  $res = mysqli_query($link, $sql);
     }
 
 if (isset($_POST['update'])) {
-$patient_id = $_POST['patient_id'];
 $now = date("Y-m-d");
+
+//Loop through each patient
+$sql1 = "SELECT a.id FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.approved = true";
+$res1 = mysqli_query($link, $sql1);
+
+if (mysqli_query($link, $sql1)) {
+while ($row = mysqli_fetch_array($res1)){
+  $patient_id  = $row['id'];
+
 
 //Days Due
 $sql = "SELECT p.admission_date FROM accounts a, patients p WHERE a.id = '$patient_id' and p.patient_id = a.id";
@@ -79,6 +96,8 @@ $totalDue = $totalDayDue + $totalAppointmentDue + $totalMedicineDue;
 $sql = "UPDATE patients SET amount_due = '$totalDue' WHERE patient_id = '$patient_id'";
 $res = mysqli_query($link, $sql);
 
+}
+}
 header("Location:paymentPage.php");
     }
 

@@ -30,9 +30,9 @@ include "payment.php";
     </P>
     <P>
     <label for="newPayment">New Payment:</label>
-    <input type="number" name="newPayment" readonly>
+    <input type="number" name="newPayment">
     </P>
-    <input class="save" name="newPayment" type="submit" value="ok">
+    <input class="save" name="Payment" type="submit" value="ok">
     <input class="cancel" type="reset" value="Cancel">
     <P>
     <input class="save" name="update" type="submit" value="Update">
