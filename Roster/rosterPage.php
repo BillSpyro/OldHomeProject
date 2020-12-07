@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../script/style.css" rel="stylesheet" type="text/css" />
 
-    <title>Document</title>
+    <title>Roster</title>
 </head>
 <body>
 <?php
-    
+
     include "../Includes/header.php";
 ?>
 <div class="rosterPage">
@@ -22,13 +22,13 @@
     <div id="schedul-result">
 
     <?php
-    
+
     include "roster.php";
     ?>
     </div>
 </div>
     <?php
-    
+
     include "../Includes/footer.php";
 ?>
 </body>

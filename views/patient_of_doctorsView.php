@@ -8,7 +8,7 @@ $link = mysqli_connect("localhost", "root", "","oldHome");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Patient of doctor</title>
     <link href="../script/style.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -33,10 +33,10 @@ include "../Includes/header.php";
     </div>
     <div class="patient_info--result">
         <h1>result</h1>
-        
+
      <?php
         include "patient_info.php";
-    
+
     ?>
 </div>
 </div>

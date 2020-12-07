@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Role</title>
+  <title>Roles</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../script/style.css" rel="stylesheet" type="text/css" />
 </head>
@@ -36,7 +36,7 @@ include "role.php";
 <h1>New Role</h1>
 
 <form class="role" action="rolePage.php" method="post">
-  
+
 <p>
     <label for="newrole">New Role:</label>
     <input type="text" name="new_role" id="newrole" required>
