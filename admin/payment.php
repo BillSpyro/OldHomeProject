@@ -29,9 +29,19 @@ if (isset($_POST['Payment'])) {
     $newPayment = 0;
   }
 
+  $sql = "SELECT p.amount_paid FROM accounts a, patients p WHERE a.id = '$patient_id' and p.patient_id = a.id";
+  $res = mysqli_query($link, $sql);
+  if (mysqli_query($link, $sql)) {
+  while ($row = mysqli_fetch_array($res)){
+    $amount_paid = $row['amount_paid'];
+  }
+  }
+
   $amount_due = $amount_due - $newPayment;
 
-  $sql = "UPDATE patients SET amount_due = '$amount_due' WHERE patient_id = '$patient_id'";
+  $amount_paid += $newPayment;
+
+  $sql = "UPDATE patients SET amount_due = '$amount_due', amount_paid = '$amount_paid' WHERE patient_id = '$patient_id'";
   $res = mysqli_query($link, $sql);
     }
 
@@ -92,6 +102,17 @@ $totalMedicineDue = $totalMedicine * 5 * intval($months);
 
 //Total amount calculated
 $totalDue = $totalDayDue + $totalAppointmentDue + $totalMedicineDue;
+
+$sql = "SELECT p.amount_paid FROM accounts a, patients p WHERE a.id = '$patient_id' and p.patient_id = a.id";
+$res = mysqli_query($link, $sql);
+if (mysqli_query($link, $sql)) {
+while ($row = mysqli_fetch_array($res)){
+  $amount_paid = $row['amount_paid'];
+}
+}
+
+//Deduct amount paid
+$totalDue = $totalDue - $amount_paid;
 
 $sql = "UPDATE patients SET amount_due = '$totalDue' WHERE patient_id = '$patient_id'";
 $res = mysqli_query($link, $sql);
