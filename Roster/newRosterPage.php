@@ -9,7 +9,7 @@
 
 </head>
 
-<body>
+<body class="new-roster">
 <!-- include header page -->
 <?php
 include "../Includes/header.php";

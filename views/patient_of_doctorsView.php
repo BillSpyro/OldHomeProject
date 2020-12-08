@@ -12,13 +12,13 @@ $link = mysqli_connect("localhost", "root", "","oldHome");
     <link href="../script/style.css" rel="stylesheet" type="text/css" />
 
 </head>
-<body>
+<body class="patient--Info">
 <?php
 include "../Includes/header.php";
 ?>
 <div class="patientInfo">
 <div class="patient-info">
-    <h1>patient Information for Doctors, Admins, supervisors,and Cargivers only!</h1>
+    <h1>Patient Information</h1>
     <form class="search" action="patient_of_doctorsView.php" method="post">
     <input type="text" name="id" id="name" placeholder="id" >
     <input type="text" name="first_name" id="name" placeholder="name" >
@@ -32,7 +32,7 @@ include "../Includes/header.php";
     </form>
     </div>
     <div class="patient_info--result">
-        <h1>result</h1>
+        <h1>Search Result</h1>
         
      <?php
         include "patient_info.php";

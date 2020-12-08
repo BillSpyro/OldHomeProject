@@ -39,7 +39,7 @@ include "additional_Patient_info.php";
     <p>
         <label for="first_name">Patient Name:</label>
 
-        <p><?php echo $first_name . " " . $last_name; ?></p>
+        <input type="text" name="name" value="<?php echo $first_name . " " . $last_name; ?>" readonly>
 
     </p>
 

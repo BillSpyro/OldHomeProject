@@ -25,6 +25,7 @@ if($count == 1) {
     while ($row = mysqli_fetch_array($result)){
       $_SESSION['id'] = $row['id'];
       $_SESSION['role_id'] = $row['role_id'];
+      $_SESSION['role_name'] = $row['role_name'];
       $_SESSION['access_level'] = $row['access_level'];
       $_SESSION['first_name'] = $row['first_name'];
       $_SESSION['last_name'] = $row['last_name'];

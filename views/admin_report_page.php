@@ -19,8 +19,8 @@ include "../Includes/header.php";
 
 <h1>Admin Report</h1>
 
-
-<form  action="admin_report_page.php" method="post">
+<form  id="admin-repo" action="admin_report_page.php" method="post">
+<h3>Search missed activity based on the dailycare date</h3>
 
     <P>
     <label for="date">Date:</label>

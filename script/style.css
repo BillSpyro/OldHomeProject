@@ -1,18 +1,20 @@
 html {
     width: 100%;
     height: 100%;
-    background-color: #DCDCDC;
+    background-color: #B0E0E6;;
+    font-family: 'Castoro', serif;
  }
 
  body.home {
     margin: 0;
-    padding: 0;
+    padding-top: 0;
     margin: 0;
-    background-image: url("../Accounts/images/hospital.jpg");
-    background-position: center;
+    background-image: url("../Accounts/images/background--1.jpeg");
+    /* background-position: center; */
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
+    text-align: center;
+    
  }
  
  /* header style */
@@ -54,11 +56,7 @@ ul li a {
 
 }
 /* home page of login and register link style */
-.home-log {
-    position: absolute;
-    top: 25%;
-    right: 60%;
-}
+
 .home-log li {
     list-style: none;
     padding: 30px;
@@ -68,30 +66,47 @@ ul li a {
 .home-log li a{
     background-color: #006400;
     padding:20px;
-    width: 100%;
+    width: 10%;
     text-decoration: none;
     font-size: 24px;
     display: inline-block;
     color: white;
 }
-/* footer style */
- 
- footer {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    background-color: black;
-    text-align: center;
-    color: whitesmoke;
-    
-}
 
-footer h2 {
-    text-transform: uppercase;
-    
+section.home {
+    padding-top: 100px;;
 }
+/* footer style */
+
+
+
+footer {
+    background: #000000;
+    position: relative;
+    margin-top: 250px;
+  }
+  footer h3 {
+    padding-top: 2rem;
+    text-align: center;
+    color: white;
+  
+  }
+  .contacts {
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.3rem;
+  }
+  .social li  {
+      display: block;
+      text-align: left;
+  }
+  .Soci li {
+    display: block;
+    text-align: left;
+  }
+
+
 /* form style */
  form{
    
@@ -117,11 +132,14 @@ input, select{
 input.save  {
     display: block;
     background-color: green;
+    color: #ffffff;
 }
 
 input.cancel  {
-    background-color: brown;
+    background-color: #DC143C;
+    color: #ffffff;
 }
+
 /* registration form of labels and inputes style */
 .group1{
     float: left;
@@ -186,30 +204,37 @@ input.cancel  {
   ul.admin {
       right: 30%;
   }
-  /* authorized users info after logged in  */
-
-  .info {
-      background-color: green;
+  /* account page,authorized users info after logged in  */
+div.accountPage {
+    padding-left: 5rem;
+    
+}
+.account--page, .patient--Info {
+    background-color: #B0E0E6;
+    font-size: 1.2rem;
+}
+.info {
+    background-color: green;
   }
-   .yourInfo table {
-      background-color: whitesmoke;
-      padding: 5%;
-      border-collapse: collapse;
-      margin: 5%;
+.yourInfo table {
+    background-color: whitesmoke;
+    border-collapse: collapse;
+
       
   }
-  .yourInfo td, .yourInfo  th {
-      padding: 7px;;
+.yourInfo td, .yourInfo  th {
+    padding: 7px;
+    
   }
 /* patient info style */
 .patient-info table {
-    
-    background-color: LIGHTgray;
+   
     margin-top: 10%;
 }
-.patient-info table, th, td, tr {
+.patient-info table  th, td, tr {
     padding: 7px;
     border-collapse: collapse;
+    background-color: aquamarine;
 }
 .patient-info td{
     border:1px solid honeydew;
@@ -241,19 +266,23 @@ input.cancel  {
 /* home page content style */
 section.home {
     font-weight: bold;
-    color: #000000;
+    color: #ffffff;
+    font-size: 1.5rem;
 }
 /* login page  style */
+.login ,.registePage, .new-roster {
+    background-color: #E6E6FA;
+}
 .login-page, .register-page, .roster-page {  
-  background-color:  #63599e;
-  width: 600px;
+  background-color: #00CED1;
   height: 500px;
-  position: absolute;
-  top: 25%;
-  right: 25%;
+  width: 50%;
+  margin: 0 auto;
   color: white;
   border-radius: 3%;
-  
+  margin-top: 200px;
+  text-align: center;
+  padding-top: 3rem;
 }
 
 
@@ -272,6 +301,20 @@ section.home {
 .approval-page #yes, .approval-page #no {
     width: 50px;
 }
+.approval {
+    padding-top: 5rem;
+    padding-left: 3rem;
+}
+.approval table th {
+    padding: 1.5rem;
+}
+
+
+.appr {
+    text-align: left;
+    
+}
+/*  */
 .additional-Info, .rosterPage {
     text-align: center;
     padding-top: 4rem;
@@ -283,6 +326,7 @@ section.home {
 /* patient-infoview page */
 div.patient-info, .patient_info--result {
     padding-left: 2rem;
+    
 }
 
 div.patient-info form {
@@ -294,7 +338,10 @@ div.patient-info form {
     color: white;
 }
 tr.cell :nth-child(even){background-color: #f2f2f2}
-
+/* doctor appointment page */
+.Dr-appointment {
+    text-align: center;
+}
 .Dr_appointment input {
     display: inline-block;
     width: 140px;
@@ -316,3 +363,15 @@ tr.cell :nth-child(even){background-color: #f2f2f2}
 .family--result {
     background-color: wheat;
 }
+/* admin report */ 
+
+
+.report {
+    color: black;
+}
+/* payment page */ 
+
+.Payment {
+    text-align: center;
+}
+

@@ -98,14 +98,14 @@ VALUES ('Admin', 5),
 ('FamilyMember', 0);
 
 INSERT INTO `accounts` (role_id, first_name, last_name, email, password, phone, dateOfBirth, approved)
-VALUES (1, 'Charles', 'Crandall', 'admin@gmail.com', '12345', '717-381-1131', '07-27-2000', TRUE),
-      (4, 'Albe', 'Mela', 'caregiver1@gmail.com', '67890', 'no phone', '04-5-2000', TRUE),
-      (4, 'Mela', 'Albe', 'caregiver2@gmail.com', '123', '717-483-9043', '02-14-2000', TRUE),
-      (4, 'Care', 'Giver', 'caregiver3@gmail.com', '123', '717-345-3451', '01-1-2000', TRUE),
-      (4, 'Alex', 'Mike', 'caregiver4@gmail.com', '123', '717-752-8534', '10-31-2000', TRUE),
-      (2, 'John', 'Doe', 'supervisor@gmail.com', '123', '717-385-8683', '12-25-2000', TRUE),
-      (3, 'Jane', 'Doe', 'doctor@gmail.com', '123', '276-534-2345', '04-1-2000', TRUE),
-      (5, 'Old', 'Man', 'patient@gmail.com', '123', '717-634-7422', '05-25-2000', TRUE);
+VALUES (1, 'Charles', 'Crandall', 'admin@gmail.com', '12345', '717-381-1131', '1900-12-25', TRUE),
+      (4, 'Albe', 'Mela', 'caregiver1@gmail.com', '67890', 'no phone', '1990-12-25', TRUE),
+      (4, 'Mela', 'Albe', 'caregiver2@gmail.com', '123', '717-483-9043', '2000-12-25', TRUE),
+      (4, 'Care', 'Giver', 'caregiver3@gmail.com', '123', '717-345-3451', '2002-12-25', TRUE),
+      (4, 'Alex', 'Mike', 'caregiver4@gmail.com', '123', '717-752-8534', '2004-12-25', TRUE),
+      (2, 'John', 'Doe', 'supervisor@gmail.com', '123', '717-385-8683', '2001-12-25', TRUE),
+      (3, 'Jane', 'Doe', 'doctor@gmail.com', '123', '276-534-2345', '2010-12-25', TRUE),
+      (5, 'Old', 'Man', 'patient@gmail.com', '123', '717-634-7422', '1919-05-25', TRUE);
 
 INSERT INTO `employees` (employee_id, salary)
 VALUES (1, '3,000,000'),

@@ -5,10 +5,12 @@
   <meta charset="utf-8">
   <title>Account Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">  
   <link href="../script/style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body class="account--page">
 <?php
 include "../Includes/header.php";
 ?>
@@ -51,19 +53,22 @@ include "../Includes/header.php";
       <li><a href="../views/patientHomePage.php">Patient's Home</a></li>
       <?php endif ?>
     </ul>
-  </div>
+</div>
+
+  <div class="accountPage">
     <h1>Hello<?php
-    echo " ".$_SESSION["first_name"] . " " . $_SESSION["last_name"] ; ?></h1>
+    echo " ".$_SESSION["first_name"] . " " . $_SESSION["last_name"] . "and you are our" . " ".$_SESSION['role_name'] ; ?></h1>
 
     <h2>
       Here is your account information
+      
     </h2>
 <div class="yourInfo">
     <?php
     echo "<table border='1px black solid'>";
     echo "<tr>";
     echo "<th>id</th>";
-    echo "<th>role id</th>";
+    echo "<th>role name</th>";
     echo "<th>access level</th>";
     echo "<th>first name</th>";
     echo "<th>last name</th>";
@@ -87,6 +92,8 @@ include "../Includes/header.php";
     echo "</table>";
 
     ?>
+</div>
+
 </div>
     <?php
     include "../Includes/footer.php";

@@ -17,6 +17,8 @@ include "approval.php";
 ?>
 <div class="approval-page">
 <form class="approval" action="approvalPage.php" method="post">
+<h2 class="appr">New users that are not approved by admin yet</h2>
+
 <table>
   <tr>
     <th>Name</th>
