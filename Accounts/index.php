@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../script/style.css" rel="stylesheet" type="text/css" />
 
-    <title>Document</title>
+    <title>Home Page</title>
 </head>
 <body class="home">
 <!-- include header page -->
@@ -16,6 +16,8 @@ include "../Includes/header.php";
 <!-- welcome page, login, and register link -->
 <section class="home">
 <h1>Hi Welcome to our site!</h1>  
+
+
    <div class="home-log">
        <p>Have an account? Log in.</p>
   

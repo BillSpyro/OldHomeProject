@@ -33,6 +33,7 @@ CREATE TABLE `patients` (
   `patient_group` int(11) DEFAULT NULL,
   `admission_date` varchar(45) DEFAULT NULL,
   `amount_due` varchar(45) DEFAULT 0,
+  `amount_paid` varchar(45) DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
