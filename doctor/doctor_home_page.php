@@ -16,13 +16,16 @@ $link = mysqli_connect("localhost", "root", "","oldHome");
 <?php
 include "../Includes/header.php";
 ?>
+
 <div class="patientInfo">
+
 <div class="docotr-home">
     <h1>Doctor Home</h1>
     <!-- doctors home page about his patients  -->
     <form class="search" action="doctor_home_page.php" method="post">
 
-        <input type="text" name="name" id="name" placeholder="Name" >
+        <input type="text" name="first" id="first" placeholder="first name" >
+        <input type="text" name="last" id="last" placeholder="last name" >
         <input type="text" name="date" id="name" placeholder="Date" >
         <input type="text" name="comment" id="age" placeholder="Comment" >
         <input type="text" name="morning_med" id="emergency_contact" placeholder="Morning Med" >
@@ -34,13 +37,19 @@ include "../Includes/header.php";
     </form>
 
     <!-- patients name, date, comment and medicine time  View page for doctor -->
+
     <div class="docotrs_home--result">
-        <h1>result</h1>
+        <h1>Search Result</h1>
         <?php
         include "doctor_home.php";
         ?>
     </div>
+
+
+
     </div>
+
+
     <!-- appointment lists search -->
     <div class="appointment_list">
     <form action="doctor_home_page.php" method="post">
@@ -49,7 +58,12 @@ include "../Includes/header.php";
         <input class="save" name="search_appointment_list" type="submit" value="search">
 
     </form>
+</div>
 
+
+
+
+<div class='edit'>
 <?php
 // appointment lists from now to specific date
 if ($link === false) {
@@ -88,8 +102,13 @@ if (isset($_POST['search_appointment_list'])) {
 
 ?>
 </div>
+
 </div>
 
+
+<!-- include footer page -->
+<div class="footer">
 <?php
 include "../Includes/footer.php";
 ?>
+</div>

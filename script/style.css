@@ -347,7 +347,7 @@ tr.cell :nth-child(even){background-color: #f2f2f2}
     width: 140px;
 }
 .appointment_list {
-    position: absolute;
+    position: fixed;
     right: 5%;
     top: 20%;
 }
@@ -355,10 +355,14 @@ tr.cell :nth-child(even){background-color: #f2f2f2}
 .docotr-home form {
     text-align: left;
 }
+
 .docotr-home {
     padding-left: 2rem;
-    background-color: thistle;
-    background-size: auto;
+}
+.edit table{
+    position: fixed;
+   top: 35%;
+   left: 78%;
 }
 .family--result {
     background-color: wheat;
@@ -375,3 +379,11 @@ tr.cell :nth-child(even){background-color: #f2f2f2}
     text-align: center;
 }
 
+/* roster page */ 
+
+.schedul-result table , th, td, tr {
+    padding: 10px;
+    border-collapse: collapse;
+    background-color: aquamarine;
+}
+ 

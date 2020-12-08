@@ -9,7 +9,8 @@ if ($link === false) {
 
     if (isset($_POST['doctor_info_search'])) {
 
-        $first_name = $_POST['name'];
+        $first_name = $_POST['first'];
+        $last_name = $_POST['last'];
         $date = $_POST['date'];
         $comment = $_POST['comment'];
         $morning_med = $_POST['morning_med'];
@@ -24,36 +25,41 @@ if ($link === false) {
           }else {
             $sql_firstName = " and a.first_name = '$first_name'";
           }
+        if (empty($last_name)){
+            $sql_lastName = " and a.last_name LIKE '$last_name%'";
+          }else {
+            $sql_lastName = " and a.last_name = '$last_name'";
+          }
         if (empty($date)){
             $sql_date = " and d.appointment_date LIKE '$date%'";
           }else {
             $sql_date = " and d.appointment_date = '$date'";
           }
-        if (empty($comment)){
-            $sql_comment = " and d.comment LIKE '$comment%'";
+          if (empty($comment)){
+            $sql_comment = " and (d.comment LIKE '$comment%' or d.comment IS NULL)";
           }else {
-            $comment = " and d.comment = '$comment'";
+            $sql_comment = " and d.comment = '$comment'";
           }
         if (empty($morning_med)){
-            $sql_morning_med = " and d.morning_med LIKE '$morning_med%'";
+            $sql_morning_med = " and (d.morning_med LIKE '$morning_med%' or d.morning_med IS NULL)";
           }else {
             $sql_morning_med = " and d.morning_med = '$morning_med'";
           }
         if (empty($afternoon_med)){
-            $sql_afternoon_med = " and d.afternoon_med LIKE '$afternoon_med%'";
+            $sql_afternoon_med = " and (d.afternoon_med LIKE '$afternoon_med%' or d.afternoon_med IS NULL)";
           }else {
-            $sql_afternoon_med = " and p.afternoon_med = '$afternoon_med'";
+            $sql_afternoon_med = " and d.afternoon_med = '$afternoon_med'";
           }
           if (empty($night_med)){
-            $sql_night_med = " and d.night_med LIKE '$night_med%'";
+            $sql_night_med = " and (d.night_med LIKE '$night_med%' or d.night_med IS NULL)";
           }else {
-            $sql_night_med = " and p.night_med = '$night_med'";
+            $sql_night_med = " and d.night_med = '$night_med'";
           }
 
-        $sql = $sql_base . $sql_firstName . $sql_date  . $sql_comment . $sql_morning_med .$sql_afternoon_med . $sql_night_med;
+        $sql = $sql_base . $sql_firstName . $sql_lastName . $sql_date  . $sql_comment . $sql_morning_med .$sql_afternoon_med . $sql_night_med;
         //echo $sql;
         if ($result = mysqli_query($link, $sql)) {
-            if (mysqli_num_rows($result) > 0) {
+            if (mysqli_num_rows($result) >0) {
                 echo "<table>";
                 echo "<tr>";
                 echo "<th>Name</th>";
