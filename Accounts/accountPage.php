@@ -57,7 +57,7 @@ include "../Includes/header.php";
 
   <div class="accountPage">
     <h1>Hello<?php
-    echo " ".$_SESSION["first_name"] . " " . $_SESSION["last_name"] . "and you are our" . " ".$_SESSION['role_name'] ; ?></h1>
+    echo " ".$_SESSION["first_name"] . " " . $_SESSION["last_name"] . " and you are our" . " ".$_SESSION['role_name'] ; ?></h1>
 
     <h2>
       Here is your account information
