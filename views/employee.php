@@ -119,6 +119,7 @@ if (isset($_POST['update'])) {
   $salary = $_POST['salary'];
   $sql = "UPDATE employees SET salary = '$salary' WHERE employee_id = '$id'";
   $res = mysqli_query($link, $sql);
+  header("location:employeePage.php");
 }
 }
 

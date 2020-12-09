@@ -81,7 +81,9 @@ $list = $_POST['list'];
      }
     }
   }
-}}
+  header("location:approvalPage.php");
+}
+}
 
 // Close connection
 mysqli_close($link);

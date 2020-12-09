@@ -44,6 +44,7 @@ if (mysqli_num_rows($res) > 0){
 $sql = "INSERT INTO roles (role_name, access_level) VALUES ('$role_name', '$access_level')";
 if (mysqli_query($link, $sql)) {
     echo "Records added successfully.";
+    header("location:rolePage.php");
 } else {
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }

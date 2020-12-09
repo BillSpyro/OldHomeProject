@@ -6,7 +6,7 @@
   <title>Account Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">
   <link href="../script/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -40,7 +40,7 @@ include "../Includes/header.php";
       <li><a href="../views/caregiverPage.php">Caregiver Home</a></li>
       <?php endif ?>
       <?php if ($_SESSION['access_level'] == 3): ?>
-      <li><a href="../doctor/doctor_home_page.php">Docotr Appointment</a></li>
+      <li><a href="../doctor/doctor_home_page.php">Doctor Appointment</a></li>
       <?php endif ?>
 
       <li><a href="../Roster/rosterPage.php">Roster</a></li>
@@ -61,7 +61,7 @@ include "../Includes/header.php";
 
     <h2>
       Here is your account information
-      
+
     </h2>
 <div class="yourInfo">
     <?php
