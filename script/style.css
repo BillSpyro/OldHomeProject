@@ -256,9 +256,10 @@ div.accountPage {
     width: 100px;;
 }
 .updateemployee-Salary {
-    text-align: center;
-    margin-left: 60%;
-    margin-top: -30%;
+    position: fixed;
+    right: 5%;
+    top: 20%;
+    
     
     
 }

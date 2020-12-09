@@ -22,7 +22,7 @@ include "../Includes/header.php";
     <form class="search" action="patient_of_doctorsView.php" method="post">
     <input type="text" name="id" id="name" placeholder="id" >
     <input type="text" name="first_name" id="name" placeholder="name" >
-    <input type="text" name="dateOfBirth" id="age" placeholder="age" >
+    <input type="text" name="dateOfBirth" id="age" placeholder="DOB(y-m-d)" >
     <input type="text" name="emergency_contact" id="emergency_contact" placeholder="emerg_contact" >
     <input type="text" name="family_code" id="family_code" placeholder="emerg_con_name" >
     <input type="text" name="admission_date" id="admission_date" placeholder="Admi_date" >
