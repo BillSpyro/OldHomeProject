@@ -8,22 +8,22 @@ if ($link === false) {
 }
 
 //Displays all available employees
-$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Supervisor'";
+$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Supervisor' and a.approved = 1";
 $supervisorResult = mysqli_query($link,$sql);
 
-$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Doctor'";
+$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Doctor' and a.approved = 1";
 $doctorResult = mysqli_query($link,$sql);
 
-$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Caregiver'";
+$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Caregiver' and a.approved = 1";
 $caregiver1Result = mysqli_query($link,$sql);
 
-$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Caregiver'";
+$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Caregiver' and a.approved = 1";
 $caregiver2Result = mysqli_query($link,$sql);
 
-$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Caregiver'";
+$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Caregiver' and a.approved = 1";
 $caregiver3Result = mysqli_query($link,$sql);
 
-$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Caregiver'";
+$sql = "SELECT a.*, r.* FROM accounts a, roles r WHERE a.role_id = r.role_id and r.role_name = 'Caregiver' and a.approved = 1";
 $caregiver4Result = mysqli_query($link,$sql);
 
 //Adds the selected employees to the roster
@@ -128,6 +128,9 @@ while ($row = mysqli_fetch_array($result)){
   $res = mysqli_query($link,$sql);
 }
 }
+if (mysqli_query($link, $sql)) {
+    echo "Records added successfully.";
+  }
 }
 // Close connection
 mysqli_close($link);
