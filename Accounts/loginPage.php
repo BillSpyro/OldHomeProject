@@ -18,9 +18,9 @@ include "../Includes/header.php";
 <!-- basic login form -->
 
 <div class="login-page">
-<h1>LOG IN HERE </h1>
+<h1>Log In</h1>
 <form action="loginPage.php" method="post">
-  
+
   <!--Displays error if the login fails-->
   <?php if (isset($error)): ?>
 
