@@ -28,7 +28,7 @@ if (isset($_POST['Payment'])) {
   if (empty($newPayment)){
     $newPayment = 0;
   }
-
+  $amount_paid = 0;
   $sql = "SELECT p.amount_paid FROM accounts a, patients p WHERE a.id = '$patient_id' and p.patient_id = a.id";
   $res = mysqli_query($link, $sql);
   if (mysqli_query($link, $sql)) {

@@ -52,11 +52,12 @@ include "register.php";
 <div class="group1">
 <p>
         <label for="Phone">Phone:</label>
-        <input type="text" name="phone" id="phone" required>
+        <input type="text" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+        <small>Format: 000-000-0000</small>
     </p>
     <p>
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required>
+        <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
     </p>
     <p>
         <label for="dateOfBirth">Date of Birth:</label>
