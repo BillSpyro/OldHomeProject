@@ -18,6 +18,8 @@ if (mysqli_query($link, $sql)) {
 while ($row = mysqli_fetch_array($res)){
   $patient_group  = $row['patient_group'];
 }
+
+
 $sql = "SELECT c.id AS caregiverID, c.first_name AS caregiverFirstName, r.patient_group AS caregiverGroup, cr.role_id AS caregiverRole, p.id AS patientID, p.first_name AS patientFirstName, pa.patient_group AS patientGroup, pr.role_id AS patientRole, r.roster_date FROM accounts c, accounts p, roles cr, roles pr, roster r, patients pa WHERE p.role_id = pr.role_id and pr.access_level = 1 and c.role_id = cr.role_id and cr.access_level = 2 and c.id = r.employee_id and p.id = pa.patient_id and r.patient_group = pa.patient_group and r.patient_group = $patient_group and c.id = r.employee_id and r.roster_date = '$date'";
 
 $idArray = array();

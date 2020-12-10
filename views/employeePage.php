@@ -13,6 +13,21 @@
 include "../Includes/header.php";
 include "employee.php";
 ?>
+<div class="updateemployee-Salary">
+  <h2>Update Employee's Salary</h2>
+<form class="updateemployeeSalary" action="employeePage.php" method="post">
+<p>
+  <label for="id">Emp ID:</label>
+  <input type="number" name="id" id="id" required>
+</p>
+<p>
+  <label for="salary">New Salary:</label>
+  <input type="number" name="salary" id="salary" required>
+</p>
+<input class="save" name="update" type="submit" value="Ok">
+<input class="cancel" type="reset" value="Cancel">
+</form>
+</div>
 <h1>Search employees</h1>
 <div class="employee-page">
   
@@ -53,22 +68,8 @@ include "employee.php";
 </form>
 
 <?php if ($_SESSION['access_level'] >= 5): ?>
-<div class="updateemployee-Salary">
-  <h2>Update Employee's Salary</h2>
-<form class="updateemployeeSalary" action="employeePage.php" method="post">
-<p>
-  <label for="id">Emp ID:</label>
-  <input type="number" name="id" id="id" required>
-</p>
-<p>
-  <label for="salary">New Salary:</label>
-  <input type="number" name="salary" id="salary" required>
-</p>
-<input class="save" name="update" type="submit" value="Ok">
-<input class="cancel" type="reset" value="Cancel">
-</form>
+
 <?php endif ?>
-</div>
 </div>
 <?php
 include "../Includes/footer.php";

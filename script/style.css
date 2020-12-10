@@ -97,8 +97,12 @@ footer {
     justify-content: space-around;
     font-size: 1.3rem;
   }
+  .contacts {
+     padding-left: 5%;
+  }
   .social li  {
       display: block;
+
       text-align: left;
   }
   .Soci li {
@@ -255,14 +259,7 @@ div.accountPage {
 .employeeSearch table tr input {
     width: 100px;;
 }
-.updateemployee-Salary {
-    position: fixed;
-    right: 5%;
-    top: 20%;
-    
-    
-    
-}
+
 
 /* home page content style */
 section.home {
@@ -388,3 +385,70 @@ tr.cell :nth-child(even){background-color: #f2f2f2}
     background-color: aquamarine;
 }
  
+
+/* Ressponsive design when screen resolution under 900px*/
+
+
+@media only screen and (max-width: 1000px) {
+    .home-log li a {
+        width: auto;
+    }
+    .group1{
+        float: right;
+        width: 100%;
+        
+      }
+
+      footer {
+        margin-top: 0px;
+    }
+    .login-page {
+        background-color: #00CED1;
+        height: 100%;
+        width: 100%;
+        padding: 0pc;
+        margin: 0pt;
+    }
+    .register-page, .roster-page {
+        background-color: #00CED1;
+        height: 1000px;
+        width: 100%;
+        padding: 0pc;
+        margin: 0pt;
+    }
+    .headr2 {
+        height: 400px;
+        
+    }
+    .headr2 ul li  {
+        padding: 5px;
+        display: block;
+    }
+    .role-info {
+        display: flex;
+        flex-direction: column-reverse;
+        
+    }
+    .new-role {
+        text-align: left;
+        margin-left: 0px;
+        margin-top: 0px;
+      }
+      ul.admin {
+        left: 0%;
+    }
+}
+
+
+/* Responsive Disgn when width is under 500px */
+@media only screen and (max-width: 500px) {
+
+    .group1{
+        float: right;
+        width: 100%;
+        
+      }
+      footer {
+          margin-top: 0px;
+      }
+}

@@ -38,7 +38,7 @@ include "role.php";
 <form class="role" action="rolePage.php" method="post">
 
 <p>
-    <label for="newrole">New Role:</label>
+    <label for="newrole">Role Name:</label>
     <input type="text" name="new_role" id="newrole" required>
 </p>
 <?php if (isset($role_error)): ?>

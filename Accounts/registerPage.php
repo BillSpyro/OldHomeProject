@@ -20,7 +20,7 @@ include "register.php";
 <h1>Register Page</h1>
 
 <form class="register" action="registerPage.php" method="post">
-<div>
+
   <div class="group1">
   <p>
   <label for="role">Role:</label>
@@ -38,7 +38,7 @@ include "register.php";
         <label for="lastName">Last Name:</label>
         <input type="text" name="last_name" id="lastName" required>
     </p>
-    <p>
+
         <div <?php if (isset($email_error)): ?> class="form_error" <?php endif ?> >
           <label for="emailAddress">Email Address:</label>
           <input type="email" name="email" id="emailAddress" required>
@@ -47,7 +47,7 @@ include "register.php";
             <span><?php echo $email_error; ?></span>
           <?php endif ?>
         </div>
-    </p>
+
   </div>
 <div class="group1">
 <p>
@@ -66,7 +66,8 @@ include "register.php";
     <input class="save" name="register" type="submit" value="Ok">
     <input class="cancel" type="reset" value="Cancel">
 </div>
-</div>
+
+
 </form>
 </div>
 <!-- include footer page -->
