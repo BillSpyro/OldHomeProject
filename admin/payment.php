@@ -1,4 +1,5 @@
 <?php
+if ($_SESSION['access_level'] == 5){
 
 $link = mysqli_connect("localhost", "root", "","oldHome");
 
@@ -120,6 +121,11 @@ $res = mysqli_query($link, $sql);
 }
 }
 header("Location:paymentPage.php");
+    }
+
+    mysqli_close($link);
+    } else {
+      header("location:../Accounts/accountPage.php");
     }
 
 ?>

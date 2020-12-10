@@ -1,5 +1,7 @@
 <?php
 
+if ($_SESSION['access_level'] >= 2){
+
 $link = mysqli_connect("localhost", "root", "","oldHome");
 
 // Check connection
@@ -121,5 +123,10 @@ if ($link === false) {
         }else {
             echo "sorry, there is no dat in your databse";
         }
+    }
+
+    mysqli_close($link);
+    } else {
+      header("location:../Accounts/accountPage.php");
     }
 ?>

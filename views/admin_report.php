@@ -1,5 +1,7 @@
 <?php
 
+if ($_SESSION['access_level'] >= 4){
+
 $link = mysqli_connect("localhost", "root", "","oldHome");
 
 // Check connection
@@ -128,6 +130,11 @@ if (isset($_POST['miss_activity_search'])) {
         }else {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
+    }
+
+    mysqli_close($link);
+    } else {
+      header("location:../Accounts/accountPage.php");
     }
 
 ?>

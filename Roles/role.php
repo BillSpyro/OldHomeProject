@@ -54,6 +54,6 @@ if (mysqli_query($link, $sql)) {
 // Close connection
 mysqli_close($link);
 } else {
-  header("location:accountPage.php");
+  header("location:../Accounts/accountPage.php");
 }
 ?>
