@@ -1,4 +1,7 @@
 <?php
+
+if ($_SESSION['access_level'] == 3){
+
 $link = mysqli_connect("localhost", "root", "","oldHome");
 
 // Check connection
@@ -83,33 +86,9 @@ if (isset($_POST['new_prescription']) ) {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+mysqli_close($link);
+} else {
+  header("location:../Accounts/accountPage.php");
+}
 
 ?>

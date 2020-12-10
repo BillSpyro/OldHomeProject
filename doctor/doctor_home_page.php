@@ -20,7 +20,7 @@ include "../Includes/header.php";
 <div class="patientInfo">
 
 <div class="docotr-home">
-    <h1>Doctor Home</h1>
+    <h1>Doctor's Home</h1>
     <!-- doctors home page about his patients  -->
     <form class="search" action="doctor_home_page.php" method="post">
 

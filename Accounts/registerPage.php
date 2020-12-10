@@ -17,7 +17,7 @@ include "register.php";
 ?>
 <!-- basic registeration form  -->
 <div class="register-page">
-<h1>Register Page</h1>
+<h1>Register</h1>
 
 <form class="register" action="registerPage.php" method="post">
 

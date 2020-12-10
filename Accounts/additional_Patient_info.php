@@ -1,4 +1,5 @@
 <?php
+if ($_SESSION['access_level'] >= 4){
 
 $link = mysqli_connect("localhost", "root", "","oldHome");
 
@@ -44,5 +45,9 @@ if (mysqli_query($link, $sql)) {
 // Close connection
 mysqli_close($link);
 
+}
+mysqli_close($link);
+} else {
+  header("location:accountPage.php");
 }
 ?>

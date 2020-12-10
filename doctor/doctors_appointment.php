@@ -1,5 +1,7 @@
 <?php
 
+if ($_SESSION['access_level'] >= 4){
+
 $link = mysqli_connect("localhost", "root", "","oldHome");
 
 // Check connection
@@ -56,4 +58,7 @@ if (isset($_POST['doctorAppointment'])) {
 }
 // Close connection
 mysqli_close($link);
+} else {
+  header("location:../Accounts/accountPage.php");
+}
 ?>

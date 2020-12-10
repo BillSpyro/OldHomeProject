@@ -4,13 +4,13 @@
   <div class="contacts">
     <ul class="social">
       <li>
-        <h4>Phone Numbers and Adresses</h4>
+        <h4>Phone Numbers and Addresses</h4>
       </li>
       <hr>
-      <li>cell phone: *** *** ****</li>
-      <li>house Phone: *** *** ****</li>
-      <li>email adress: some@yahoo.com</li>
-      <li>street adress: 2144 Hollinger Road Lancaster Pa 17602</li>
+      <li>Cell Phone: *** *** ****</li>
+      <li>House Phone: *** *** ****</li>
+      <li>Email Address: some@yahoo.com</li>
+      <li>Street Address: 2144 Hollinger Road Lancaster, Pa 17602</li>
 
     </ul>
     <ul class="Soci">

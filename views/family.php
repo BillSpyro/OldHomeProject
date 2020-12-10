@@ -128,6 +128,6 @@ if ($link === false) {
     }
     mysqli_close($link);
     } else {
-      header("location:accountPage.php");
+      header("location:../Accounts/accountPage.php");
     }
 ?>
