@@ -24,7 +24,7 @@ include "../Includes/header.php";
     <input type="text" name="first_name" id="name" placeholder="name" >
     <input type="date" name="dateOfBirth" id="age" placeholder="DOB(y-m-d)" >
     <input type="text" name="emergency_contact" id="emergency_contact" placeholder="emerg_contact" >
-    <input type="text" name="family_code" id="family_code" placeholder="emerg_con_name" >
+    <input type="text" name="relation_emergency" id="relation_emergency" placeholder="emerg_con_name" >
     <input type="date" name="admission_date" id="admission_date" placeholder="Admi_date" >
     <input class="save" name="patient_info_search" type="submit" value="search">
     <input class="save" name="showall" type="submit" value="Show all">

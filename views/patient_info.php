@@ -16,7 +16,7 @@ if ($link === false) {
         $first_name = $_POST['first_name'];
         $dateOfBirth = $_POST['dateOfBirth'];
         $emergency_contact = $_POST['emergency_contact'];
-        $family_code = $_POST['family_code'];
+        $relation_emergency = $_POST['relation_emergency'];
         $admission_date = $_POST['admission_date'];
         //$sql = "SELECT * FROM accounts WHERE id LIKE '$id%' and first_name LIKE '$first_name%' and dateOfBirth LIKE '$dateOfBirth%' and  emergency_contact LIKE '$emergency_contact%' and family_code LIKE '$family_code%';";
         $sql_base = "SELECT a.*, r.*, p.* FROM accounts a, roles r, patients p WHERE a.role_id = r.role_id and r.role_name = 'patient' and a.id = p.patient_id";
@@ -40,10 +40,10 @@ if ($link === false) {
           }else {
             $sql_emergenceycon = " and p.emergency_contact = '$emergency_contact'";
           }
-        if (empty($family_code)){
-            $sql_familyCode = " and p.family_code LIKE '$family_code%'";
+        if (empty($relation_emergency)){
+            $sql_relation_emergency = " and p.relation_emergency LIKE '$relation_emergency%'";
           }else {
-            $sql_familyCode = " and p.family_code = '$family_code'";
+            $sql_relation_emergency = " and p.relation_emergency = '$relation_emergency'";
           }
         if (empty($admission_date)){
             $sql_admissionDate = " and p.admission_date LIKE '$admission_date%'";
@@ -51,7 +51,7 @@ if ($link === false) {
             $sql_admissionDate = " and p.admission_date = '$admission_date'";
           }
 
-        $sql = $sql_base . $sql_id . $sql_firstName . $sql_Dateofbirth . $sql_emergenceycon .$sql_familyCode . $sql_admissionDate;
+        $sql = $sql_base . $sql_id . $sql_firstName . $sql_Dateofbirth . $sql_emergenceycon .$sql_relation_emergency. $sql_admissionDate;
         //echo $sql;
         if ($result = mysqli_query($link, $sql)) {
             if (mysqli_num_rows($result) > 0) {
@@ -60,8 +60,8 @@ if ($link === false) {
                 echo "<th>id</th>";
                 echo "<th>Name</th>";
                 echo "<th>Age</th>";
-                echo "<th>Emergency Contact</th>";
                 echo "<th>Emergency Contact Name</th>";
+                echo "<th>Emergency Contact</th>";
                 echo "<th>Admission Date</th>";
                 echo "</tr>";
                 while ($row = mysqli_fetch_array($result)) {
@@ -75,7 +75,7 @@ if ($link === false) {
                     $age = floor($difference / 31556926);
                     echo "<td>" . $age . "</td>";
                     echo "<td>" . $row['emergency_contact'] . "</td>";
-                    echo "<td>" . $row['family_code'] . "</td>";
+                    echo "<td>" . $row['relation_emergency'] . "</td>";
                     echo "<td>" . $row['admission_date'] . "</td>";
                     echo "</tr>";
                 }
@@ -99,8 +99,8 @@ if ($link === false) {
             echo "<th>id</th>";
             echo "<th>Name</th>";
             echo "<th>Age</th>";
-            echo "<th>Emergency Contact</th>";
             echo "<th>Emergency Contact Name</th>";
+            echo "<th>Emergency Contact</th>";
             echo "<th>Admission Date</th>";
             echo "</tr>";
             while ($row = mysqli_fetch_array($result)) {
@@ -114,7 +114,7 @@ if ($link === false) {
                 $age = floor($difference / 31556926);
                 echo "<td>" . $age . "</td>";
                 echo "<td>" . $row['emergency_contact'] . "</td>";
-                echo "<td>" . $row['family_code'] . "</td>";
+                echo "<td>" . $row['relation_emergency'] . "</td>";
                 echo "<td>" . $row['admission_date'] . "</td>";
                 echo "</tr>";
 
