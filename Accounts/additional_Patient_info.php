@@ -46,7 +46,6 @@ if (mysqli_query($link, $sql)) {
 mysqli_close($link);
 
 }
-mysqli_close($link);
 } else {
   header("location:accountPage.php");
 }
